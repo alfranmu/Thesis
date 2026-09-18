@@ -1,0 +1,258 @@
+\documentclass[12pt,oneside]{book}
+\usepackage{geometry}
+ \geometry{
+ left=3.5cm,
+ right=2.5cm,
+ top=3cm,
+ bottom=2.8cm,
+ headheight=1cm,
+ headsep=0.5cm,
+ footskip=0.6cm,
+ }
+\linespread{1.5}
+\usepackage{fancyhdr}
+\fancypagestyle{plain}[fancy]{}
+\renewcommand{\headrulewidth}{0pt}
+\usepackage{lipsum} 
+
+\usepackage{titlesec}
+\titleformat{\chapter}[block]
+  {\normalfont\huge\bfseries}{\thechapter .}{20pt}{\huge}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+colorlinks,
+    linkcolor={blue!80!black},
+    citecolor={blue!80!black}
+}
+\usepackage{setspace}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\DeclareMathOperator{\GL}{GL}
+
+
+\begin{document}
+
+\thispagestyle{empty}
+
+
+%PORTADA: Por favor completar la siguiente información, respetando el uso de mayúsculas tal como se indica.
+
+\pagestyle{fancy}
+\fancyfoot[c]{\thepage}
+\frontmatter
+
+\begin{center}
+
+
+{\Large UNIVERSIDAD DE COSTA RICA}
+
+{\Large SISTEMA DE ESTUDIOS DE POSGRADO}
+
+\vspace{3cm}
+{\Large E-POLYNOMIALS OF CHARACTER VARIETIES OF FINITELY GENERATED GROUPS} %Todo en mayúscula
+
+\vspace{3cm}
+{\Large Thesis submitted to the consideration of the Committee of the Graduate Studies Program in Mathematics to obtain the degree and title of Academic Master's in Mathematics with an emphasis in Pure Mathematics  } 
+
+\vspace{3cm}
+{\Large ALLAN FRANCISCO MURILLO BADILLA} %Todo en mayúscula
+
+
+\vspace{3cm}
+{\large Ciudad Universitaria Rodrigo Facio, Costa Rica}
+
+\vspace{1.5cm}
+{\large 2026}
+
+
+\end{center}
+
+
+\newpage
+
+
+\chapter*{Dedication}
+\addcontentsline{toc}{section}{Dedicatoria}
+
+Digite aquí la dedicatoria, si así lo desea; de lo contrario, puede eliminar esta página.  Puede unificar la dedicatoria y los agradecimientos en una misma sección.
+
+
+\newpage
+
+
+\chapter*{Acknowlegments}
+\addcontentsline{toc}{section}{Agradecimientos}
+
+Digite aquí los agradecimientos, si así lo desea; de lo contrario, puede eliminar esta página.  Puede unificar la dedicatoria y los agradecimientos en una misma sección.
+
+
+\newpage
+% No se debe colocar ningún título, como “Hoja de aprobación” o similares (en el caso de las defensas virtuales ver las directrices del SEP). En el nombre de la persona sustentante no debe figurar ninguna indicación al grado académico que ya posea; esta página debe contener de manera exacta solamente la siguiente información:
+
+\refstepcounter{section}
+\addcontentsline{toc}{section}{Approval Page}
+
+\begin{center}
+``This thesis was accepted by the Mathematics Graduate Program Committee of the University of Costa Rica, in partial fulfillment of the requirements for the degree of Professional Master in Mathematical Methods and Applications.''
+
+\begin{spacing}{1}
+\vspace{1.5cm}
+\underline{\hspace{10cm}} \\
+Grado académico y nombre completo \\
+\textbf{Decano(a) o Representante del/de la Decano(a)
+Sistema de Estudios de Posgrado}
+
+
+\vspace{1.5cm}
+\underline{\hspace{10cm}} \\
+Grado académico y nombre completo \\
+\textbf{Profesor(a) Guía}
+
+
+
+\vspace{1.5cm}
+\underline{\hspace{10cm}} \\
+Grado académico y nombre completo \\
+\textbf{Lector(a)}
+
+
+\vspace{1.5cm}
+\underline{\hspace{10cm}} \\
+Grado académico y nombre completo \\
+\textbf{Lector(a)}
+
+
+\vspace{1.5cm}
+\underline{\hspace{10cm}} \\
+Grado académico y nombre completo \\
+\textbf{Director(a)/Representante Programa de Posgrado en Matemática}
+
+
+\vspace{1.5cm}
+\underline{\hspace{10cm}} \\
+Nombre completo \\
+\textbf{Sustentante}
+% NO debe hacer indicación del grado académico de la persona sustentante.
+\end{spacing}
+
+% Importante: deberá utilizar el género que corresponda en las líneas de los miembros(as) del tribunal examinador, deberá utilizar -por ejemplo- “Asesor” o “Asesora” según sea el caso. Asimismo deberá indicar solamente un cargo, por ejemplo “Decana” o “Representante de la Decana”. La cantidad de miembros del tribunal examinador a incluir en la hoja de aprobación, se determina según el acta correspondiente a la presentación oral y pública (examen de grado) del estudiante.
+
+\end{center}
+
+\newpage
+\thispagestyle{fancy}
+\fancyhead{\empty}
+\tableofcontents
+
+
+
+\newpage
+\chapter*{Resumen}
+\addcontentsline{toc}{section}{Resumen}
+
+Agregar en esta sección el \textbf{resumen en español}.  Este resumen es necesario independientemente del idioma del trabajo.  
+
+La extensión del resumen debe ser de una página como máximo. Es la única que puede presentarse con interlineado sencillo de ser necesario. Debe constar únicamente, el título “Resumen” y la síntesis del documento.
+
+
+
+
+
+\newpage
+\chapter*{Abstract (o resumen en otro idioma)}
+\addcontentsline{toc}{section}{Abstract}
+
+Agregar en esta sección el abstract o resumen en otro idioma en caso de que el cuerpo del trabajo sea en un idioma distinto al español.  Debe cumplir con las características de extensión y formato del resumen en español.
+
+
+
+
+\newpage
+\addcontentsline{toc}{section}{Lista de tablas}
+\listoftables
+Agregar acá la lista de tablas cuando sea necesario.  De lo contrario, puede eliminar esta página.
+
+
+\newpage
+\addcontentsline{toc}{section}{Lista de figuras}
+\listoffigures
+Agregar acá la lista de figuras cuando sea necesario.  De lo contrario, puede eliminar esta página.
+
+
+\newpage
+\addcontentsline{toc}{section}{Abreviaturas}
+\chapter*{Abreviaturas}
+Agregar acá las abreviaturas cuando sea necesario.  De lo contrario, puede eliminar esta página.
+
+
+
+\mainmatter
+
+\pagestyle{fancy}
+\fancyhead[r]{\thepage}
+\fancyfoot[c]{\empty}
+
+
+
+
+
+\newpage
+\chapter{Introducción}
+\section{Justificación}
+\section{Objetivos}
+\section{Otros}
+
+
+\newpage
+\chapter{Preliminaries}
+\input{preliminaries.tex}
+
+\newpage
+\chapter{Character varieties}
+\input{character_varieties}
+\newpage
+
+\chapter{Hodge structures}
+\input{hodge_structures.tex}
+
+\newpage
+\chapter{E-polynomials}
+\input{e_polynomials.tex}
+
+\newpage
+\chapter{Main results}
+\input{results.tex}
+
+
+
+\chapter{Conclusiones}
+
+
+
+
+\addcontentsline{toc}{chapter}{Bibliografía}
+\bibliographystyle{plain}
+\bibliography{bibliografia}
+
+
+
+\newpage
+\addcontentsline{toc}{chapter}{Anexos}
+\chapter*{Anexos}
+
+Agregar en esta sección los anexos de ser necesario.
+
+
+\end{document}

@@ -1,0 +1,19 @@
+# Archivos auxiliares de compilación
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Archivos de presentaciones (si usas Beamer)
+*.nav
+*.snm
+
+# Opcional: ignorar el PDF si prefieres que Overleaf lo genere
+*.pdf

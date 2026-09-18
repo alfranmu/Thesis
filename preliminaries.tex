@@ -1,0 +1,64 @@
+\section{Lie Groups}
+
+A Lie group $G$ is a group with the additional structure of a smooth manifold, such that the group operations of multiplication and inversion are smooth maps. Lie groups always admit an analytic atlas, unique up to analytic diffeomorphism, such that multiplication and inversion are analytic maps (c.f.\ \cite[Prop 1.117]{KnappAnthonyW.1996LGBa}). The standard examples of Lie groups are $\GL_n(\RR)$, $\GL_n(\bC)$, and all their closed subgroups, which are called linear Lie groups.
+
+The Lie algebra of the group $G$, denoted by $\mathfrak{g}$, is the space of all left-invariant vector fields on $G$ endowed with the Lie bracket arising from the commutator (see \cite[Chapter 2, Section 3]{milneLAG}). We can identify $\mathfrak{g}$ with the tangent space at the identity. 
+
+To connect the Lie algebra $\mathfrak{g}$ back to the Lie group $G$, we introduce the exponential map. For every left-invariant vector field $X \in \mathfrak{g}$, there exists a unique one-parameter subgroup, which is a smooth homomorphism $\gamma_X : \RR \to G$, such that its initial tangent vector is $X_e$. The Lie exponential map $\exp : \mathfrak{g} \to G$ is defined by evaluating this subgroup at $t = 1$, that is,
+\begin{equation}
+    \exp(X) = \gamma_X(1).
+\end{equation}
+This map is a local diffeomorphism between a neighborhood of the origin in $\mathfrak{g}$ and a neighborhood of the identity $e$ in $G$. 
+
+In the specific case of linear Lie groups, the Lie exponential map coincides with the standard matrix exponential. For any matrix $X$ in the corresponding Lie algebra, it is given by the absolutely convergent series:
+\begin{equation}
+    \exp(X) = e^X = \sum_{k=0}^{\infty} \frac{X^k}{k!}.
+\end{equation}
+
+The group $G$ acts on itself by conjugation, $C_g(h) = g h g^{-1}$. By differentiating this action at the identity $e \in G$, we obtain the adjoint representation of the Lie group on its Lie algebra, denoted by $\operatorname{Ad}: G \to \operatorname{Aut}(\mathfrak{g})$. Explicitly, for $g \in G$ and $\xi \in \mathfrak{g}$, it is given by
+\begin{equation}
+    \operatorname{Ad}(g)(\xi) = \frac{d}{dt}\bigg|_{t=0} g \exp(t\xi) g^{-1}.
+\end{equation}
+
+We can classify a Lie algebra $\mathfrak{g}$ under the following categories \cite{maret_note_nodate}:
+\begin{itemize}
+    \item A Lie algebra $\mathfrak{g}$ is \textbf{simple} if it is not abelian and if its only proper ideal is the zero ideal. Equivalently, $\mathfrak{g}$ is simple if and only if its adjoint representation is irreducible and $\mathfrak{g}$ is not a one-dimensional abelian Lie algebra.
+    \item A \textbf{semisimple} Lie algebra $\mathfrak{g}$ is one without nonzero abelian ideals; equivalently, it is a direct sum of simple Lie algebras. The Killing form $K(v_1, v_2) := \operatorname{Tr}(\operatorname{ad}(v_1) \operatorname{ad}(v_2))$ for $v_1, v_2 \in \mathfrak{g}$, where $\operatorname{Tr}$ is the endomorphism trace, provides a symmetric bilinear form that is non-degenerate precisely when $\mathfrak{g}$ is semisimple.
+    \item A \textbf{reductive} Lie algebra is a direct sum of a semisimple and an abelian algebra, or equivalently, one whose adjoint representation is completely reducible.
+\end{itemize}
+
+We call a connected Lie group simple, semisimple or reductive if its Lie algebra is simple, semisimple or reductive, respectively. Simple Lie groups are semisimple and semisimple Lie groups are reductive.
+
+\section{Algebraic Groups}
+
+\begin{definition}
+    An affine algebraic group $G$ is an algebraic variety (the common zero set of finitely many polynomials) equipped with a group structure such that multiplication and inversion, $m : G \times G \to G$, $(g, h) \mapsto gh$, and $i : G \to G$, $g \mapsto g^{-1}$, are regular morphisms of varieties.
+\end{definition}
+
+Every real or complex algebraic group also has a natural Lie group structure \cite[Chapter 3, Theorem 2.1]{milneLAG}.
+
+\section{Finitely Generated Groups}
+
+\begin{definition}
+    A group $\Gamma$ is finitely generated if it admits a finite set of generators $S$ such that every element of $\Gamma$ is a finite product of elements of $S$ and their inverses.
+\end{definition}
+
+One of the main examples of finitely generated groups are the surface groups. 
+
+\begin{definition}[Surface Groups]
+    Let $g, n \geqslant 0$. The surface group of genus $g$ with $n$ punctures is 
+    \begin{equation}
+        \pi_{g,n} := \left\langle a_1, b_1, \dots, a_g, b_g, c_1, \dots, c_n \;\middle|\; \prod_{i=1}^g [a_i, b_i] = \prod_{j=1}^n c_j \right\rangle,
+    \end{equation}
+    where $[a_i, b_i] = a_i b_i a_i^{-1} b_i^{-1}$ for $i = 1, \dots, g$. 
+    
+    When $n = 0$, this corresponds to the fundamental group of a closed surface of genus $g$. For $n \geqslant 1$, the relation implies $\pi_{g,n}$ is a free group of rank $2g + n - 1$. The groups $\pi_{0,0}$ and $\pi_{0,1}$ are trivial. Only $\pi_{0,2} \cong \ZZ$ and the torus group $\pi_{1,0} \cong \ZZ^2$ are abelian; higher genus groups are non-abelian.
+\end{definition}
+
+The following theorem justifies the name \emp{surface group}
+
+\begin{theorem}
+    Let $\Sigma_{g,n}$ be an orientable surface of genus $g$ with $n$ punctures. Then $\pi_1(\Sigma_{g,n}) \cong \pi_{g,n}$.
+\end{theorem}
+
+The proof can be checked on \cite{casimiroCharacterVarietiesTheir2026} Theorem 1.
