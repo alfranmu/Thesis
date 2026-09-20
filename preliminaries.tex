@@ -1,23 +1,64 @@
-\section{Lie Groups}
+
+\section{Conventions and notation}
+
+Tangent space of a smooth manifold
+Vector fields
+
+
+
+
+\section{Lie Groups and its Lie Algebras}
 
 A Lie group $G$ is a group with the additional structure of a smooth manifold, such that the group operations of multiplication and inversion are smooth maps. Lie groups always admit an analytic atlas, unique up to analytic diffeomorphism, such that multiplication and inversion are analytic maps (c.f.\ \cite[Prop 1.117]{KnappAnthonyW.1996LGBa}). A homomorphism $\varphi : G_1 \to G_2$ of Lie groups is a map that is both compatible with the group structures and smooth as a map of manifolds.
 
 
+\begin{definition}
+	A Lie subgroup of a Lie group G is an injective homomorphism of Lie groups i: H--, G.
+\end{definition}
+
 
 The standard examples of Lie groups are $\GL_n(\RR)$, $\GL_n(\bC)$, and all their closed subgroups, which are called linear Lie groups.
 
-Let $g$ be an arbitrary element of the Lie group $G$. The symbol $L_g$ denotes left translation in $G$ by $g$, that is, $L_g(h)=gh$ for all $y \in G$. The defining properties of $G$ imply that $L_g$ is a diffeomorphism, with inverse $(L_g)^{-1}$, and the derivative $d(Lx) : TG \to TG$ must also be a diffeomorphism. For each tangent space $T_hG$, $d L_g: T_h G \to T_h G $ is a linear isomorphism.
+
+Let $g$ be an arbitrary element of the Lie group $G$. The symbol $L_g$ denotes left translation in $G$ by $g$, that is, $L_g(h)=gh$ for all $y \in G$. The defining properties of $G$ imply that $L_g$ is a diffeomorphism, with inverse $(L_g)^{-1}$, and the derivative $d(Lx) : TG \to TG$ must also be a diffeomorphism. For each tangent space $T_hG$, ${d L_g: T_h G \to T_h G} $ is a linear isomorphism.
 
 \begin{definition}
     The vector field $X$ on $G$ is said to be left-invariant if and only if $d(L_g)X= X \circ L_g$ , for all points $g \in G$,
 \end{definition} 
-Such a field Xis completely determined by its value at the identity X(e). Conversely for every vector v E Te(G) we can define a (smooth) left-invariant vector field X on G by X(y) = (Ly)*(v). This proves
+Such a field $X$ is completely determined by its value at the identity $X_e$. Conversely for every vector $v \in T_e(G)$ we can define a (smooth) left-invariant vector field $X$ on $G$ by $X_g = dL_g(v)$. 
 
-Lemma 8.1.3. The map X f-+ X(e) is a linear isomorphism between the set of left-invariant vector fields on G and Te(G), the tangent space at the identity.
+\begin{proposition}
+The map $X  \to X_e$ is a linear isomorphism between the set of left-invariant vector fields on $G$ and $T_eG $, the tangent space at the identity.
+\end{proposition}
 
 
-The Lie algebra of the group $G$, denoted by $\mathfrak{g}$, is the space of all left-invariant vector fields on $G$ endowed with the Lie bracket arising from the commutator (see \cite[Chapter 2, Section 3]{milneLAG}). We can identify $\mathfrak{g}$ with the tangent space at the identity. 
+The Lie algebra of the group $G$, denoted by $\mathfrak{g}$, is the space of all left-invariant vector fields on $G$ endowed with the Lie bracket arising from the commutator (see \cite[Chapter 2, Section 3]{milneLAG}). As we saw before, we can identity the Lie Algebra $\mathfrak{g}$ with the tangent space at the identity. 
 
+Now we recall the definition of a one-parameter group:
+
+\begin{definition}
+    A one-parameter group of diffeomorphisms of a manifold $M$ is a smooth map $\rho : M \times \RR \to M$ such that, for all $x \in M$ and $s, t \in \RR$,
+    $\rho(x, s + t) = \rho(\rho(x, t), s).$
+\end{definition}
+
+A one-parameter group can be thought of as a family of curves for each point $x \in M$, so by taking derivatives at each point we can induce a global vector field. The converse is locally true by the fundamental theorem of ordinary differential equations: every smooth vector field on $M$ generates a local one-parameter group of diffeomorphisms (its flow). If the vector field is complete, this one-parameter group is defined globally over all $\RR$.
+
+In the context of a Lie group $G$, it is a fundamental fact that every left-invariant vector field is complete (see \cite{. Therefore, every element $X \in \mathfrak{g}$ generates a unique global one-parameter subgroup of $G$, which is a smooth homomorphism $\gamma: \RR \to G$ such that $\gamma'(0) = X$. This correspondence naturally leads to the definition of the exponential map.
+
+Definition 2.7.4. Defining Pt(x) = p(x, t), we note that this means that Ps o Pt= Ps+t and
+this immediately implies that Po is the identity and then that Pt - I = P-t·
+Thus we do indeed have a group of diffeomorphisms of M, isomorphic with the
+additive group of real numbers.
+Conversely, given such a I-parameter group of diffeomorphisms, we may
+re-interpret it as a family of curves 'Yx, defined for each x E U by 'Yx(t) = Pt(x),
+and then recover the vector field of which these are the integral curves as
+X(x) = 'Yx'(O). For then, if y = 'Yx(t), the group property becomes ')'y = 'Yx o Tt
+and then we have X(y) = 'Y/(0) = 'Yx'(t) as required for 'Yx to be an integral
+curve.
+Although a I-parameter group of diffeomorphisms always determines a
+vector field in this way, which is said to generate the group, vector fields in
+general only determine a local version of a I-parameter group. A suflicent
+condition for a full group is as follows.
 To connect the Lie algebra $\mathfrak{g}$ back to the Lie group $G$, we introduce the exponential map. For every left-invariant vector field $X \in \mathfrak{g}$, there exists a unique one-parameter subgroup, which is a smooth homomorphism $\gamma_X : \RR \to G$, such that its initial tangent vector is $X_e$. The Lie exponential map $\exp : \mathfrak{g} \to G$ is defined by evaluating this subgroup at $t = 1$, that is,
 \begin{equation}
     \exp(X) = \gamma_X(1).
@@ -44,6 +85,37 @@ We can classify a Lie algebra $\mathfrak{g}$ under the following categories \cit
 We call a connected Lie group simple, semisimple or reductive if its Lie algebra is simple, semisimple or reductive, respectively. Simple Lie groups are semisimple and semisimple Lie groups are reductive.
 
 \section{Algebraic Groups}
+
+
+
+\section{}
+
+
+Definitions 8.3.3. For a group G acting on a set X, the isotropy subgroup
+at x EX is Gx = {g E Glgx = x}. The orbitofx is Gx = {gx I g E G}.
+The action is said to be transitive if it has exactly one orbit. When X is
+a topological space, the orbit space is the quotient space: the set of orbits
+topologised with the quotient topology.
+We note that, with each orbit, we can associate a conjugacy class of
+isotropy subgroups, since the isotropy subgroup at g(x) is gGxg- 1 , and that,
+although our notation is for left actions, we can equally well speak of right
+actions of G on X. A left action gives rise to a right action via the rule
+xg = g- 1 x, and conversely.
+The quotient or homogeneous space G / H, comprising cosets of the form
+xH, can be thought of as the space of orbits for the right action of H on G
+given by (g, h) t---. gh. The group G itself acts on G/ H according to the rule,
+the left action,
+G x G/H--+ G/H;
+(g,xH) t---. gxH.
+We wish to show that, subject to the choices we have made, and reverting to
+the language of Chapter 3, G has the structure of a principal H-bundle over
+G/ H. Note, before we start the main proof, that H operates on the total space
+G on the right, but that in changing charts we multiply by 9ij(x) EH on the
+left. These two actions commute.
+Theorem 8.3.4. Let G be a Lie group and H a closed subgroup of G. Then
+G admits the structure of an H -principal bundle with projection p : G ---.
+G / H; gt---. gH, p is a submersion of rank equal to the dimension of G / H, and
+G / H inherits the structure of a differential manifold.
 
 \begin{definition}
     An affine algebraic group $G$ is an algebraic variety (the common zero set of finitely many polynomials) equipped with a group structure such that multiplication and inversion, $m : G \times G \to G$, $(g, h) \mapsto gh$, and $i : G \to G$, $g \mapsto g^{-1}$, are regular morphisms of varieties.
