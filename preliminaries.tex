@@ -1,6 +1,20 @@
 \section{Lie Groups}
 
-A Lie group $G$ is a group with the additional structure of a smooth manifold, such that the group operations of multiplication and inversion are smooth maps. Lie groups always admit an analytic atlas, unique up to analytic diffeomorphism, such that multiplication and inversion are analytic maps (c.f.\ \cite[Prop 1.117]{KnappAnthonyW.1996LGBa}). The standard examples of Lie groups are $\GL_n(\RR)$, $\GL_n(\bC)$, and all their closed subgroups, which are called linear Lie groups.
+A Lie group $G$ is a group with the additional structure of a smooth manifold, such that the group operations of multiplication and inversion are smooth maps. Lie groups always admit an analytic atlas, unique up to analytic diffeomorphism, such that multiplication and inversion are analytic maps (c.f.\ \cite[Prop 1.117]{KnappAnthonyW.1996LGBa}). A homomorphism $\varphi : G_1 \to G_2$ of Lie groups is a map that is both compatible with the group structures and smooth as a map of manifolds.
+
+
+
+The standard examples of Lie groups are $\GL_n(\RR)$, $\GL_n(\bC)$, and all their closed subgroups, which are called linear Lie groups.
+
+Let $g$ be an arbitrary element of the Lie group $G$. The symbol $L_g$ denotes left translation in $G$ by $g$, that is, $L_g(h)=gh$ for all $y \in G$. The defining properties of $G$ imply that $L_g$ is a diffeomorphism, with inverse $(L_g)^{-1}$, and the derivative $d(Lx) : TG \to TG$ must also be a diffeomorphism. For each tangent space $T_hG$, $d L_g: T_h G \to T_h G $ is a linear isomorphism.
+
+\begin{definition}
+    The vector field $X$ on $G$ is said to be left-invariant if and only if $d(L_g)X= X \circ L_g$ , for all points $g \in G$,
+\end{definition} 
+Such a field Xis completely determined by its value at the identity X(e). Conversely for every vector v E Te(G) we can define a (smooth) left-invariant vector field X on G by X(y) = (Ly)*(v). This proves
+
+Lemma 8.1.3. The map X f-+ X(e) is a linear isomorphism between the set of left-invariant vector fields on G and Te(G), the tangent space at the identity.
+
 
 The Lie algebra of the group $G$, denoted by $\mathfrak{g}$, is the space of all left-invariant vector fields on $G$ endowed with the Lie bracket arising from the commutator (see \cite[Chapter 2, Section 3]{milneLAG}). We can identify $\mathfrak{g}$ with the tangent space at the identity. 
 
