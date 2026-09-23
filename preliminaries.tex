@@ -1,164 +1,152 @@
+\section{Conventions and Notation}
 
-\section{Conventions and notation}
+Let $k$ denote an algebraically closed field of characteristic zero. We will use the letter $e$ to denote the identity element of a group, and $T_pM$ for the tangent space of a manifold $M$ at a point $p$.
 
-Tangent space of a smooth manifold
-Vector fields
+\section{Lie Groups and Their Lie Algebras}
 
-
-
-
-\section{Lie Groups and its Lie Algebras}
-
-A Lie group $G$ is a group with the additional structure of a smooth manifold, such that the group operations of multiplication and inversion are smooth maps. Lie groups always admit an analytic atlas, unique up to analytic diffeomorphism, such that multiplication and inversion are analytic maps (c.f.\ \cite[Prop 1.117]{KnappAnthonyW.1996LGBa}). A homomorphism $\varphi : G_1 \to G_2$ of Lie groups is a map that is both compatible with the group structures and smooth as a map of manifolds.
-
+A \emph{Lie group} $G$ is a group endowed with the additional structure of a smooth manifold, such that the group operations of multiplication and inversion are smooth maps. A \emph{homomorphism} $\varphi : G_1 \to G_2$ of Lie groups is a map that is both a group homomorphism and smooth as a map of manifolds.
 
 \begin{definition}
-	A Lie subgroup of a Lie group G is an injective homomorphism of Lie groups $i: H \to G$.
+    A \emph{Lie subgroup} of a Lie group $G$ is an injective homomorphism of Lie groups $i : H \to G$.
 \end{definition}
 
+Every Lie group admits an analytic atlas, unique up to analytic diffeomorphism, with respect to which multiplication and inversion are analytic maps (cf.\ \cite[Prop.\ 1.117]{KnappAnthonyW.1996LGBa}). The standard examples of Lie groups are $\GL_n(\RR)$, $\GL_n(\bC)$, and their closed subgroups, which are called \emph{linear Lie groups}.
 
-The standard examples of Lie groups are $\GL_n(\RR)$, $\GL_n(\bC)$, and all their closed subgroups, which are called linear Lie groups.
-
-
-Let $g$ be an arbitrary element of the Lie group $G$. The symbol $L_g$ denotes left translation in $G$ by $g$, that is, $L_g(h)=gh$ for all $y \in G$. The defining properties of $G$ imply that $L_g$ is a diffeomorphism, with inverse $(L_g)^{-1}$, and the derivative $d(Lx) : TG \to TG$ must also be a diffeomorphism. For each tangent space $T_hG$, ${d L_g: T_h G \to T_h G} $ is a linear isomorphism.
+Let $g$ be an arbitrary element of the Lie group $G$. We write $L_g$ for left translation by $g$, that is, $L_g(h) = gh$ for all $h \in G$. The group axioms imply that $L_g$ is a diffeomorphism with inverse $(L_g)^{-1} = L_{g^{-1}}$, so its differential $dL_g : TG \to TG$ is likewise a diffeomorphism; in particular, for each $h \in G$, the restriction $dL_g : T_hG \to T_{gh}G$ is a linear isomorphism.
 
 \begin{definition}
-    The vector field $X$ on $G$ is said to be left-invariant if and only if $d(L_g)X= X \circ L_g$ , for all points $g \in G$,
-\end{definition} 
-Such a field $X$ is completely determined by its value at the identity $X_e$. Conversely for every vector $v \in T_e(G)$ we can define a (smooth) left-invariant vector field $X$ on $G$ by $X_g = dL_g(v)$. 
+    A vector field $X$ on $G$ is \emph{left-invariant} if
+    \[
+        dL_g(X_h) = X_{gh} \qquad \text{for all } g, h \in G.
+    \]
+\end{definition}
+
+A left-invariant vector field is completely determined by its value at the identity: given $v \in T_eG$, the assignment $X_g := dL_g(v)$ defines a smooth left-invariant vector field on $G$.
 
 \begin{proposition}
-The map $X  \to X_e$ is a linear isomorphism between the set of left-invariant vector fields on $G$ and $T_eG $, the tangent space at the identity.
+    The map $X \mapsto X_e$ is a linear isomorphism between the space of left-invariant vector fields on $G$ and the tangent space $T_eG$ at the identity.
 \end{proposition}
 
+The \emph{Lie algebra} of $G$, denoted $\mathfrak{g}$, is the space of left-invariant vector fields on $G$ endowed with the Lie bracket induced by the commutator of vector fields (see \cite[Ch.\ 2, \S 3]{milneLAG}). By the proposition above, $\mathfrak{g}$ may be identified with $T_eG$.
 
-The Lie algebra of the group $G$, denoted by $\mathfrak{g}$, is the space of all left-invariant vector fields on $G$ endowed with the Lie bracket arising from the commutator (see \cite[Chapter 2, Section 3]{milneLAG}). As we saw before, we can identify the Lie algebra $\mathfrak{g}$ with the tangent space at the identity. 
-
-Now we recall the definition of a one-parameter group:
-
-\begin{definition}
-    A one-parameter group of diffeomorphisms of a manifold $M$ is a smooth map $\rho : M \times \RR \to M$ such that, for all $x \in M$ and $s, t \in \RR$,
-    $\rho(x, s + t) = \rho(\rho(x, t), s).$
-\end{definition}
-
-A one-parameter group can be thought of as a family of curves for each point $x \in M$, so by taking derivatives at each point we can induce a global vector field. The converse is locally true by the fundamental theorem of ordinary differential equations: every smooth vector field on $M$ generates a local one-parameter group of diffeomorphisms (its flow). If the vector field is complete, this one-parameter group is defined globally over all $\RR$.
-
-In the context of a Lie group $G$, it is a fundamental fact that every left-invariant vector field is complete (see \cite[Theorem 8.3.1]{barden2003introduction}). Its flow therefore generates a global one-parameter group of diffeomorphisms on $G$. Because the vector field is left-invariant, the specific integral curve starting at the identity is actually a one-parameter subgroup—a smooth homomorphism $\gamma_X : \RR \to G$—such that its initial tangent vector is $X_e$. This correspondence naturally leads to the definition of the exponential map.
+We now recall the notion of a one-parameter group of diffeomorphisms.
 
 \begin{definition}
-    Let $X \in \mathfrak{g}$, and let $\gamma_X : \RR \to G$ be the corresponding one-parameter subgroup generated by $X$. We define the Lie exponential map $\exp : \mathfrak{g} \to G$ as
-\begin{equation}
-    \exp(X) = \gamma_X(1).
-\end{equation}
+    A \emph{one-parameter group of diffeomorphisms} of a manifold $M$ is a smooth map $\rho : M \times \RR \to M$ such that, for all $x \in M$ and $s, t \in \RR$,
+    \[
+        \rho(x, s+t) = \rho(\rho(x,t), s).
+    \]
 \end{definition}
 
-This exponential map is a local diffeomorphism between a neighborhood of the origin in $\mathfrak{g}$ and a neighborhood of the identity $e$ in $G$.
+A one-parameter group can be viewed as a family of curves through each point $x \in M$; differentiating these curves produces a global vector field on $M$. Conversely, by the fundamental theorem of ordinary differential equations, every smooth vector field on $M$ generates a \emph{local} one-parameter group of diffeomorphisms, namely its flow. When the vector field is complete, this flow is defined for all time.
 
+\begin{lemma}
+    Every left-invariant vector field on a Lie group $G$ is complete (see \cite[Thm.\ 8.3.1]{barden2003introduction}). Consequently, its flow generates a one-parameter group of diffeomorphisms of $G$ defined for all $t \in \RR$.
+\end{lemma}
 
-In the specific case of linear Lie groups, the Lie exponential map coincides with the standard matrix exponential. For any matrix $X$ in the corresponding Lie algebra, it is given by the absolutely convergent series:
-\begin{equation}
-    \exp(X) = e^X = \sum_{k=0}^{\infty} \frac{X^k}{k!}.
-\end{equation}
+For any left-invariant vector field $X \in \mathfrak{g}$, the integral curve of its flow through the identity is itself a one-parameter subgroup---that is, a smooth homomorphism $\gamma_X : \RR \to G$ with $\gamma_X'(0) = X_e$. This correspondence naturally motivates the definition of the exponential map.
 
-The group $G$ acts on itself by conjugation, so each element gives rise to an inner automorphism $C_g: G \to G$ given by $C_g (h) = ghg^{-1}$. By differentiating this action at the identity $e \in G$, we obtain a map $\text{Ad}_g: \mathfrak{g} \to \mathfrak{g}$ where $\text{Ad}_g= dC_g$ and this maps induce a homomorphism $\text{Ad}: G \to \text{Aut}(\mathfrak{g})$ that assigns an inner automorphism to each element of the group. Explicitly, for $g \in G$ and $\xi \in \mathfrak{g}$, it is given by
-\begin{equation}
-    \operatorname{Ad}(g)(\xi) = \frac{d}{dt}\bigg|_{t=0} g \exp(t\xi) g^{-1}.
-\end{equation}
+\begin{definition}
+    Let $X \in \mathfrak{g}$ and let $\gamma_X : \RR \to G$ be the one-parameter subgroup generated by $X$. The \emph{Lie exponential map} $\exp : \mathfrak{g} \to G$ is defined by
+    \[
+        \exp(X) = \gamma_X(1).
+    \]
+\end{definition}
 
-We can classify a Lie algebra $\mathfrak{g}$ under the following categories \cite{maret_note_nodate}:
-\begin{itemize}
-    \item A Lie algebra $\mathfrak{g}$ is \textbf{simple} if it is not abelian and if its only proper ideal is the zero ideal. Equivalently, $\mathfrak{g}$ is simple if and only if its adjoint representation is irreducible and $\mathfrak{g}$ is not a one-dimensional abelian Lie algebra.
-    \item A \textbf{semisimple} Lie algebra $\mathfrak{g}$ is one without nonzero abelian ideals; equivalently, it is a direct sum of simple Lie algebras. The Killing form $K(v_1, v_2) := \operatorname{Tr}(\operatorname{ad}(v_1) \operatorname{ad}(v_2))$ for $v_1, v_2 \in \mathfrak{g}$, where $\operatorname{Tr}$ is the endomorphism trace, provides a symmetric bilinear form that is non-degenerate precisely when $\mathfrak{g}$ is semisimple.
-    \item A \textbf{reductive} Lie algebra is a direct sum of a semisimple and an abelian algebra, or equivalently, one whose adjoint representation is completely reducible.
-\end{itemize}
+The exponential map restricts to a diffeomorphism between a neighborhood of $0$ in $\mathfrak{g}$ and a neighborhood of $e$ in $G$.
 
-We call a connected Lie group simple, semisimple or reductive if its Lie algebra is simple, semisimple or reductive, respectively. Simple Lie groups are semisimple and semisimple Lie groups are reductive.
+For a linear Lie group, the Lie exponential map coincides with the ordinary matrix exponential: for $X$ in the corresponding Lie algebra,
+\[
+    \exp(X) = e^X = \sum_{k=0}^{\infty} \frac{X^k}{k!},
+\]
+with the series converging absolutely for every matrix $X$.
+
+The group $G$ acts on itself by conjugation, yielding for each $g \in G$ an inner automorphism $C_g : G \to G$, $C_g(h) = ghg^{-1}$. Taking the differential of this action at the identity yields a linear map $\mathrm{Ad}_g := (dC_g)_e : \mathfrak{g} \to \mathfrak{g}$, and the assignment $g \mapsto \mathrm{Ad}_g$ defines a homomorphism $\mathrm{Ad} : G \to \mathrm{Aut}(\mathfrak{g})$, known as the \emph{adjoint representation} of $G$. Explicitly, for $g \in G$ and $\xi \in \mathfrak{g}$,
+\[
+    \mathrm{Ad}(g)(\xi) = \left.\frac{d}{dt}\right|_{t=0} g \exp(t\xi) g^{-1}.
+\]
+
+Following \cite{maret_note_nodate}, we classify Lie algebras as follows.
+
+\begin{definition}
+    Let $\mathfrak{g}$ be a Lie algebra.
+    \begin{itemize}
+        \item $\mathfrak{g}$ is \textbf{simple} if it is non-abelian and its only ideals are $0$ and $\mathfrak{g}$ itself. Equivalently, $\mathfrak{g}$ is simple if and only if its adjoint representation is irreducible and $\mathfrak{g}$ is not one-dimensional abelian.
+        \item $\mathfrak{g}$ is \textbf{semisimple} if it has no nonzero abelian ideals; equivalently, if it decomposes as a direct sum of simple Lie algebras. The \emph{Killing form}
+        \[
+            K(v_1, v_2) := \operatorname{Tr}\big(\operatorname{ad}(v_1)\operatorname{ad}(v_2)\big), \qquad v_1, v_2 \in \mathfrak{g},
+        \]
+        is a symmetric bilinear form on $\mathfrak{g}$ that is non-degenerate precisely when $\mathfrak{g}$ is semisimple.
+        \item $\mathfrak{g}$ is \textbf{reductive} if it is a direct sum of a semisimple Lie algebra and an abelian Lie algebra; equivalently, if its adjoint representation is completely reducible.
+    \end{itemize}
+\end{definition}
+
+A connected Lie group is called simple, semisimple, or reductive according to whether its Lie algebra possesses the corresponding property. Every simple Lie group is semisimple, and every semisimple Lie group is reductive.
 
 \section{Algebraic Varieties and Algebraic Groups}
 
-
-
-% \section{}
-
-%
-% Definitions 8.3.3. For a group G acting on a set X, the isotropy subgroup
-% at x EX is Gx = {g E Glgx = x}. The orbitofx is Gx = {gx I g E G}.
-% The action is said to be transitive if it has exactly one orbit. When X is
-% a topological space, the orbit space is the quotient space: the set of orbits
-% topologised with the quotient topology.
-% We note that, with each orbit, we can associate a conjugacy class of
-% isotropy subgroups, since the isotropy subgroup at g(x) is gGxg- 1 , and that,
-% although our notation is for left actions, we can equally well speak of right
-% actions of G on X. A left action gives rise to a right action via the rule
-% xg = g- 1 x, and conversely.
-% The quotient or homogeneous space G / H, comprising cosets of the form
-% xH, can be thought of as the space of orbits for the right action of H on G
-% given by (g, h) t---. gh. The group G itself acts on G/ H according to the rule,
-% the left action,
-% G x G/H--+ G/H;
-% (g,xH) t---. gxH.
-% We wish to show that, subject to the choices we have made, and reverting to
-% the language of Chapter 3, G has the structure of a principal H-bundle over
-% G/ H. Note, before we start the main proof, that H operates on the total space
-% G on the right, but that in changing charts we multiply by 9ij(x) EH on the
-% left. These two actions commute.
-% Theorem 8.3.4. Let G be a Lie group and H a closed subgroup of G. Then
-% G admits the structure of an H -principal bundle with projection p : G ---.
-% G / H; gt---. gH, p is a submersion of rank equal to the dimension of G / H, and
-% G / H inherits the structure of a differential manifold.
-%
-
-
-Let $k$ be a fixed algebraically closed field. We define affine $n$-space over $k$, denoted $\mathbb{A}_K^n$ or simply $\mathbb{A}^n$, to be the set of all $n$-tuples of elements of $k$. 
+The \emph{affine $n$-space} over $k$, denoted $\mathbb{A}_k^n$ or simply $\mathbb{A}^n$, is the set of all $n$-tuples of elements of $k$.
 
 \begin{definition}
-  Let $T$ be a set of polynomials, we define the zero locus of $T$, $V(T)$ by 
-  $$
-	  Z(T) = \{x \in \mathbb{A}^n : f(x) =0 \text{ for all } f \in k[x_1,\dots,x_n]\}
-  $$
+    Let $T \subseteq k[x_1, \dots, x_n]$ be a set of polynomials. The \emph{zero locus} of $T$ is
+    \[
+        Z(T) = \{ x \in \mathbb{A}^n : f(x) = 0 \text{ for all } f \in T \}.
+    \]
 \end{definition}
 
+Sets of this form are called \emph{algebraic varieties}\footnote{Most of the literature refers to these as \emph{algebraic sets}; here we follow the convention of \cite{maret_note_nodate, casimiroCharacterVarietiesTheir2026}.}. It is straightforward to verify that algebraic varieties form the closed sets of a topology on $\mathbb{A}^n$, called the \emph{Zariski topology}.
 
-We call this sets algebraic varieties\footnote{Most of the literature call these algebraic sets, but here we follow the convention used in \cite{maret_note_nodate,casimiroCharacterVarietiesTheir2026}}. It's easy to verify that algebraic varieties can be viewed as closed sets for a certain topology over the affine space. We call this, the Zariski topology.
+A map $f : X \to Y$ between algebraic varieties is a \emph{regular map} (or \emph{morphism}) if, locally on $X$, its coordinate functions are given by polynomials.
 
-A map $f : X \to Y$ between algebraic varieties is called a regular map (or a morphism) if, locally on $X$, its coordinate functions are given by polynomial functions.
-
-With the latter concepts developed, we can now focus on algebraic groups
+With these notions in hand, we turn to algebraic groups.
 
 \begin{definition}
-    An algebraic group $G$ is an algebraic variety equipped with a group structure such that multiplication and inversion, $m : G \times G \to G$, $(g, h) \mapsto gh$, and $i : G \to G$, $g \mapsto g^{-1}$, are regular morphisms of varieties.
+    An \emph{algebraic group} $G$ is an algebraic variety equipped with a group structure such that the multiplication map $m : G \times G \to G$, $(g,h) \mapsto gh$, and the inversion map $i : G \to G$, $g \mapsto g^{-1}$, are regular morphisms of varieties.
 \end{definition}
 
-The most common examples of algebraic groups are 
+Standard examples of algebraic groups include the one-dimensional additive group $\mathbb{G}_a = k$ and the multiplicative group $\mathbb{G}_m = k \setminus \{0\}$. Furthermore, the general linear group $\GL_n(k)$ is an algebraic group, and any closed subgroup (under the Zariski topology) naturally inherits this structure. This yields a rich family of examples, such as the special linear group $\SL_n(k)$, the subgroups of diagonal or triangular matrices, and the classical symplectic and orthogonal groups ($\mathrm{Sp}_{2n}(k)$ and $\mathrm{O}_{m}(k)$), which are cut out by polynomial equations preserving specific bilinear forms.
 
+\begin{proposition}
+    Let $u : G \to H$ be a morphism of algebraic groups. The following are equivalent:
+    \begin{enumerate}
+        \item[(i)] $u$ is an isomorphism of groups;
+        \item[(ii)] $u$ is an isomorphism of algebraic groups.
+    \end{enumerate}
+\end{proposition}
 
-Algebraic groups also have an associated Lie algebra
+Every algebraic group also has an associated Lie algebra; we omit the details of this construction here and instead refer the reader to \cite[Ch.\ 23]{tauvelLieAlgebrasAlgebraic2005} and \cite[Ch.\ 2]{milneLAG}.
 
-In the case of real or complex algebraic group also has a natural Lie group structure \cite[Chapter 3, Theorem 2.1]{milneLAG} this is obtained by...
-The Lie algebras are ismorphic...
+When $k = \RR$ or $k = \bC$, an algebraic group also carries a natural Lie group structure, obtained by equipping it with the standard analytic topology as a subspace of $\RR^n$ or $\bC^n$ (see \cite[Ch.\ 3, Thm.\ 2.1]{milneLAG}). In this case, the Lie algebra of $G$ regarded as an algebraic group and its Lie algebra as a Lie group coincide.
 
 \section{Finitely Generated Groups}
 
 \begin{definition}
-    A group $\Gamma$ is finitely generated if it admits a finite set of generators $S$ such that every element of $\Gamma$ is a finite product of elements of $S$ and their inverses.
+    A group $\Gamma$ is \emph{finitely generated} if it admits a finite subset $S \subseteq \Gamma$ such that every element of $\Gamma$ is a finite product of elements of $S$ and their inverses.
 \end{definition}
 
-One of the main examples of finitely generated groups are the surface groups. 
+Common examples include all finite groups, such as the cyclic groups $\ZZ/n\ZZ$, as well as fundamental infinite discrete groups like the integers $\ZZ$ and the free groups $F_n$ on $n$ generators. Other classical examples arise naturally from the study of symmetries, encompassing the symmetric and dihedral groups, and, more broadly, the family of Coxeter groups.
 
-\begin{definition}[Surface Groups]
-    Let $g, n \geqslant 0$. The surface group of genus $g$ with $n$ punctures is 
-    \begin{equation}
+A prominent family of finitely generated groups is that of surface groups arising from Riemann surfaces.
+
+\begin{definition}[Surface groups]
+    Let $g, n \geqslant 0$. The \emph{surface group} of genus $g$ with $n$ punctures is
+    \[
         \pi_{g,n} := \left\langle a_1, b_1, \dots, a_g, b_g, c_1, \dots, c_n \;\middle|\; \prod_{i=1}^g [a_i, b_i] = \prod_{j=1}^n c_j \right\rangle,
-    \end{equation}
-    where $[a_i, b_i] = a_i b_i a_i^{-1} b_i^{-1}$ for $i = 1, \dots, g$. 
-    
-    When $n = 0$, this corresponds to the fundamental group of a closed surface of genus $g$. For $n \geqslant 1$, the relation implies $\pi_{g,n}$ is a free group of rank $2g + n - 1$. The groups $\pi_{0,0}$ and $\pi_{0,1}$ are trivial. Only $\pi_{0,2} \cong \ZZ$ and the torus group $\pi_{1,0} \cong \ZZ^2$ are abelian; higher genus groups are non-abelian.
+    \]
+    where $[a_i, b_i] = a_i b_i a_i^{-1} b_i^{-1}$ for $i = 1, \dots, g$.
+
+    When $n = 0$, this is the fundamental group of a closed surface of genus $g$. For $n \geqslant 1$, the defining relation shows that $\pi_{g,n}$ is a free group of rank $2g + n - 1$. Among these groups, only $\pi_{0,2} \cong \ZZ$ and the torus group $\pi_{1,0} \cong \ZZ^2$ are abelian; the groups $\pi_{0,0}$ and $\pi_{0,1}$ are trivial, and all higher-genus groups are non-abelian.
 \end{definition}
 
-The following theorem justifies the name \emp{surface group}
+The following theorem justifies the terminology \emph{surface group}.
 
 \begin{theorem}
-    Let $\Sigma_{g,n}$ be an orientable surface of genus $g$ with $n$ punctures. Then $\pi_1(\Sigma_{g,n}) \cong \pi_{g,n}$.
+    Let $\Sigma_{g,n}$ be an orientable surface of genus $g$ with $n$ punctures. Then
+    \[
+        \pi_1(\Sigma_{g,n}) \cong \pi_{g,n}.
+    \]
 \end{theorem}
 
-The proof can be checked on \cite{casimiroCharacterVarietiesTheir2026} Theorem 1.
+\begin{proof}
+    See \cite[Thm.\ 1]{casimiroCharacterVarietiesTheir2026}.
+\end{proof}
