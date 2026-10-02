@@ -1,6 +1,23 @@
 \section{Representation variety}
 
+Let $\Gamma$ be a finitely generated group and $G$ be a (complex or real) Lie Group.
 
+\begin{definition}
+	Given a finitely generated group $\Gamma$ and a Lie Group, we define the representation variety denoted by $\operatorname{Hom}(\Gamma,G)$ as 	
+	$$ \operatorname{Hom}(\Gamma,G) = \{\rho: \Gamma \to G | \rho \text{ is a group homomorphism}\} $$	
+\end{definition}
+
+The representation variety carries the subspace topology induced from the compact-open topology on the space of continuous maps $\Gamma \to G$ where $\Gamma$ is endowed with the discrete topology. A subbasis for this topology is given by the sets
+$$ V(K,U) = \{f: \Gamma \to G | K\subset \Gamma \text{ finite}, U \subset G \text{ open} \}$$
+
+It is usual to think of the representation variety as the space 
+$$ X(\Gamma, G) = \{\rho(\gamma_{1}), \dots, \rho(\gamma_n) | \rho \in \operatorname{Hom}(\Gamma, G)   \} \subset G^n$$
+
+Indeed, we will see that this space is homeomorphic to the representation variety
+
+\begin{proposition}
+ If $G$ is a Lie group endowed with an analityc atlas then $X(\Gamma,G)$ is an analityc subvariety of $G^n$, homeomorphic to $\Hom(\Gamma,G)$. In particular $\Hom(\Gamma,G)$ inherits a natural structure of analityc variety wich is independent of the choice of generators of $\Gamma$.  	
+\end{proposition}
 
 \section{GIT quotient}
 
