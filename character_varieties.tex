@@ -8,7 +8,7 @@ Let $\Gamma$ be a finitely generated group and $G$ be a (complex or real) Lie Gr
 \end{definition}
 
 The representation variety carries the subspace topology induced from the compact-open topology on the space of continuous maps $\Gamma \to G$ where $\Gamma$ is endowed with the discrete topology. A subbasis for this topology is given by the sets
-$$ V(K,U) = \{f: \Gamma \to G | K\subset \Gamma \text{ finite}, U \subset G \text{ open} \}$$
+$$ V(K,U) = \{f: \Gamma \to G | K\subset \Gamma \text{ finite}, U \subset G \text{ open}, f(K)\subset U \}$$
 
 It is usual to think of the representation variety as the space 
 $$ X(\Gamma, G) = \{\rho(\gamma_{1}), \dots, \rho(\gamma_n) | \rho \in \operatorname{Hom}(\Gamma, G)   \} \subset G^n$$
@@ -16,8 +16,20 @@ $$ X(\Gamma, G) = \{\rho(\gamma_{1}), \dots, \rho(\gamma_n) | \rho \in \operator
 Indeed, we will see that this space is homeomorphic to the representation variety
 
 \begin{proposition}
- If $G$ is a Lie group endowed with an analityc atlas then $X(\Gamma,G)$ is an analityc subvariety of $G^n$, homeomorphic to $\Hom(\Gamma,G)$. In particular $\Hom(\Gamma,G)$ inherits a natural structure of analityc variety wich is independent of the choice of generators of $\Gamma$.  	
+ If $G$ is a Lie group endowed with an analityc atlas then $X(\Gamma,G)$ is an analytic subvariety of $G^n$, homeomorphic to $\Hom(\Gamma,G)$. In particular $\Hom(\Gamma,G)$ inherits a natural structure of analityc variety wich is independent of the choice of generators of $\Gamma$.  	
 \end{proposition}
+
+\begin{proof}
+	Let $\{\gamma_{1}, \dots, \gamma_n\}$ be a set of generators of $\gamma$, and let $r_i$ denote the set of relations for these generators. Recall that every group homomorphis is defined by the image of its generators, and those images have to preserve the relations between the generators. Each relation can be thought as a map $r_i:\Gamma^n \to \Gamma$, since this map is just a composition of inversions and multiplications, then each $r_i$ is analytic. Then $X(\Gamma,G)$ is precisely the subset of $(g_{1},\dots,g_n) \in G^n$ defined by the conditions $r_i(g_{1},\dots,g_n)=1$. It is clear that we have an isomorphism
+	\[
+		\Psi: \Hom(\Gamma,G) \to X(\Gamma,G), \quadd \rho \to (\rho(\gamma_{1}),\dots,\rho(\gamma_n))
+	\]
+To see that $\Psi$ is a homeomorphism, consider $U_{1},\dots,U_n$ open sets in $G$. Then 
+\[
+	\Psi^{-1}(X(\Gamma,G)\cap \left(U_1 \times \dots \times U_n\right)) = \Hom(\Gamma,G) \cap \bigcap_{i=1}^n V \left(\{\gamma_i)\}, U_i \right)
+\]
+
+\end{proof}
 
 \section{GIT quotient}
 
