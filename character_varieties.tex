@@ -8,7 +8,9 @@ Let $\Gamma$ be a finitely generated group and $G$ be a (complex or real) Lie Gr
 \end{definition}
 
 The representation variety carries the subspace topology induced from the compact-open topology on the space of continuous maps $\Gamma \to G$ where $\Gamma$ is endowed with the discrete topology. A subbasis for this topology is given by the sets
-$$ V(K,U) = \{f: If pγ11, . . . , γ1n1 q is another set of generators of Γ and X1pΓ, Gq is the associated space, then the map from XpΓ, Gq to X1pΓ, Gq defined as the composition  XpΓ, Gq Ñ HompΓ, Gq Ñ X1pΓ, Gq  is an isomorphism of analytic varieties. Indeed, the map sends φpγ1q, . . . , φpγnq to φpγ11q, . . . , φpγ1n1 q . Now, since γi1 is a word in the generators γ1, . . . , γn, it follows that φpγi1q is a word in φpγ1q, . . . , φpγnq. This shows that the map is analytic because word maps are analytic by assumption on G.\Gamma \to G | K\subset \Gamma \text{ finite}, U \subset G \text{ open}, f(K)\subset U \}$$
+% $$ V(K,U) = \{f: If pγ11, . . . , γ1n1\}$$
+
+% q is another set of generators of Γ and X1pΓ, Gq is the associated space, then the map from XpΓ, Gq to X1pΓ, Gq defined as the composition  XpΓ, Gq Ñ HompΓ, Gq Ñ X1pΓ, Gq  is an isomorphism of analytic varieties. Indeed, the map sends φpγ1q, . . . , φpγnq to φpγ11q, . . . , φpγ1n1 q . Now, since γi1 is a word in the generators γ1, . . . , γn, it follows that φpγi1q is a word in φpγ1q, . . . , φpγnq. This shows that the map is analytic because word maps are analytic by assumption on G.\Gamma \to G | K\subset \Gamma \text{ finite}, U \subset G \text{ open}, f(K)\subset U \}
 
 It is usual to think of the representation variety as the space 
 $$ X(\Gamma, G) = \{\rho(\gamma_{1}), \dots, \rho(\gamma_n) | \rho \in \operatorname{Hom}(\Gamma, G)   \} \subset G^n$$
@@ -22,7 +24,7 @@ Indeed, we will see that this space is homeomorphic to the representation variet
 \begin{proof}
 	Let $\{\gamma_{1}, \dots, \gamma_n\}$ be a set of generators of $\gamma$, and let $r_i$ denote the set of relations for these generators. Recall that every group homomorphis is defined by the image of its generators, and those images have to preserve the relations between the generators. Each relation can be thought as a map $r_i:\Gamma^n \to \Gamma$, since this map is just a composition of inversions and multiplications, then each $r_i$ is analytic. Then $X(\Gamma,G)$ is precisely the subset of $(g_{1},\dots,g_n) \in G^n$ defined by the conditions $r_i(g_{1},\dots,g_n)=1$. It is clear that we have an isomorphism
 	\[
-		\Psi: \Hom(\Gamma,G) \to X(\Gamma,G), \quadd \rho \to (\rho(\gamma_{1}),\dots,\rho(\gamma_n))
+		\Psi: \Hom(\Gamma,G) \to X(\Gamma,G), \quad \rho \to (\rho(\gamma_{1}),\dots,\rho(\gamma_n))
 	\]
 To see that $\Psi$ is a homeomorphism, consider $U_{1},\dots,U_n$ open sets in $G$. Then 
 \[
@@ -30,7 +32,7 @@ To see that $\Psi$ is a homeomorphism, consider $U_{1},\dots,U_n$ open sets in $
 \]
 This proves $\Psi$ is continuous. Now for its inverse, take $K \subset \Gamma$ finite and $U \subset G$ open. Any $\gamma \in K$ can be expressed as a word in the generators, and hence it determines an analytic map $\gamma:G^n \to G $, hence
 \[
-	\Psi(\Hom(\Gamma,G)\cap V(K,U)) = X(\Gamma,G) \cap \bigcap_{\gamma in K} \gamma ^{-1}(U)
+	\Psi(\Hom(\Gamma,G)\cap V(K,U)) = X(\Gamma,G) \cap \bigcap_{\gamma \in K} \gamma ^{-1}(U)
 \]
 Therefore, $\Psi$ is a homeomorphism.
 
