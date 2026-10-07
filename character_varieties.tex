@@ -8,7 +8,7 @@ Let $\Gamma$ be a finitely generated group and $G$ be a (complex or real) Lie Gr
 \end{definition}
 
 The representation variety carries the subspace topology induced from the compact-open topology on the space of continuous maps $\Gamma \to G$ where $\Gamma$ is endowed with the discrete topology. A subbasis for this topology is given by the sets
-$$ V(K,U) = \{f: \Gamma \to G | K\subset \Gamma \text{ finite}, U \subset G \text{ open}, f(K)\subset U \}$$
+$$ V(K,U) = \{f: If pγ11, . . . , γ1n1 q is another set of generators of Γ and X1pΓ, Gq is the associated space, then the map from XpΓ, Gq to X1pΓ, Gq defined as the composition  XpΓ, Gq Ñ HompΓ, Gq Ñ X1pΓ, Gq  is an isomorphism of analytic varieties. Indeed, the map sends φpγ1q, . . . , φpγnq to φpγ11q, . . . , φpγ1n1 q . Now, since γi1 is a word in the generators γ1, . . . , γn, it follows that φpγi1q is a word in φpγ1q, . . . , φpγnq. This shows that the map is analytic because word maps are analytic by assumption on G.\Gamma \to G | K\subset \Gamma \text{ finite}, U \subset G \text{ open}, f(K)\subset U \}$$
 
 It is usual to think of the representation variety as the space 
 $$ X(\Gamma, G) = \{\rho(\gamma_{1}), \dots, \rho(\gamma_n) | \rho \in \operatorname{Hom}(\Gamma, G)   \} \subset G^n$$
@@ -28,8 +28,21 @@ To see that $\Psi$ is a homeomorphism, consider $U_{1},\dots,U_n$ open sets in $
 \[
 	\Psi^{-1}(X(\Gamma,G)\cap \left(U_1 \times \dots \times U_n\right)) = \Hom(\Gamma,G) \cap \bigcap_{i=1}^n V \left(\{\gamma_i)\}, U_i \right)
 \]
+This proves $\Psi$ is continuous. Now for its inverse, take $K \subset \Gamma$ finite and $U \subset G$ open. Any $\gamma \in K$ can be expressed as a word in the generators, and hence it determines an analytic map $\gamma:G^n \to G $, hence
+\[
+	\Psi(\Hom(\Gamma,G)\cap V(K,U)) = X(\Gamma,G) \cap \bigcap_{\gamma in K} \gamma ^{-1}(U)
+\]
+Therefore, $\Psi$ is a homeomorphism.
+
+If $(\gamma'_{1},\dots,\gamma'_n)$ is another set of generators of $\Gamma$ and $X'(\Gamma,G)$ is the associated space, then the map from $X(\Gamma,G)$ to $X(\Gamma,G)$ defined as the composition 
+\[
+	X(\Gamma,G) \to \Hom(\Gamma,G) \to X'(\Gamma,G)
+\]is an isomorphism of analytic varieties. Indeed, the map sends $(\rho(\gamma_{1}),\dots,\rho(\gamma_n))$ to $(\rho(\gamma_{1}'),\dots,\rho(\gamma_n))$ . Now, since $\gamma_i'$ is a word in the generators $\gamma_{1},\dots,\gamma_n$, it follows that $\rho(\gamma_i')$ is a word in $\rho(\gamma_{1}),\dots,\rho(\gamma_n)$. This shows that the map is analytic because word maps are analytic by assumption on $G$.
 
 \end{proof}
+\begin{proposition}
+	Assume that $G$ has the structure of a real or complex algebraic group, then $X(\Gamma,G)$ is an algebraic subset of $G^n$. In particular,$\Hom(\Gamma,G) $has a natural structure of real or complex algebraic variety and the structure does not depend on the choice of generators of $\Gamma$.
+\end{proposition}
 
 \section{GIT quotient}
 
