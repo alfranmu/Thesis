@@ -1,4 +1,6 @@
 \section{Representation variety}
+We refer to \cite{maret_note_nodate, casimiroCharacterVarietiesTheir2026} for further details.
+
 
 Let $\Gamma$ be a finitely generated group and $G$ be a (complex or real) Lie Group.
 
@@ -6,11 +8,11 @@ Let $\Gamma$ be a finitely generated group and $G$ be a (complex or real) Lie Gr
 	Given a finitely generated group $\Gamma$ and a Lie Group, we define the representation variety denoted by $\operatorname{Hom}(\Gamma,G)$ as 	
 	$$ \operatorname{Hom}(\Gamma,G) = \{\rho: \Gamma \to G | \rho \text{ is a group homomorphism}\} $$	
 \end{definition}
+the elements $\varphi \in \Hom(\Gamma,G)$ are called representations.
 
 The representation variety carries the subspace topology induced from the compact-open topology on the space of continuous maps $\Gamma \to G$ where $\Gamma$ is endowed with the discrete topology. A subbasis for this topology is given by the sets
-% $$ V(K,U) = \{f: If pγ11, . . . , γ1n1\}$$
+$$ V(K,U) = \{f: \Gamma \to G | K \subset \Gamma \text{ finite}, U \subset \text{ open}, f(K)\subset U \}$$
 
-% q is another set of generators of Γ and X1pΓ, Gq is the associated space, then the map from XpΓ, Gq to X1pΓ, Gq defined as the composition  XpΓ, Gq Ñ HompΓ, Gq Ñ X1pΓ, Gq  is an isomorphism of analytic varieties. Indeed, the map sends φpγ1q, . . . , φpγnq to φpγ11q, . . . , φpγ1n1 q . Now, since γi1 is a word in the generators γ1, . . . , γn, it follows that φpγi1q is a word in φpγ1q, . . . , φpγnq. This shows that the map is analytic because word maps are analytic by assumption on G.\Gamma \to G | K\subset \Gamma \text{ finite}, U \subset G \text{ open}, f(K)\subset U \}
 
 It is usual to think of the representation variety as the space 
 $$ X(\Gamma, G) = \{\rho(\gamma_{1}), \dots, \rho(\gamma_n) | \rho \in \operatorname{Hom}(\Gamma, G)   \} \subset G^n$$
@@ -45,6 +47,43 @@ If $(\gamma'_{1},\dots,\gamma'_n)$ is another set of generators of $\Gamma$ and 
 \begin{proposition}
 	Assume that $G$ has the structure of a real or complex algebraic group, then $X(\Gamma,G)$ is an algebraic subset of $G^n$. In particular,$\Hom(\Gamma,G) $has a natural structure of real or complex algebraic variety and the structure does not depend on the choice of generators of $\Gamma$.
 \end{proposition}
+
+\begin{proof}
+	The proof is analogous to the previous one.
+\end{proof}
+
+The representation variety $\Hom(\Gamma,G)$, has two natural symmetries given by the right action of the group $\operatorname{Aut}(\Gamma)$ of automorphisms of $\Gamma$ by pre-composition and the left action of $\operatorname{Aut}(G)$ by post-composition. Both actions preserve the analytic or algebraic structure of $\Hom(\Gamma,G)$ as a consequence of the next proposition
+\begin{proposition}
+	Let $\Gamma, \Gamma_{1},\Gamma_{2}$ be finitely generated groups, and let $G,G_{1},G_{2}$ be Lie or algebraic groups.
+	\begin{enumerate}
+	   \item If $f:\Gamma_{1} \to \Gamma_{2}$ is a homomorphism, then the induced map $ f^* : \Hom(\Gamma_{2}, G) \to \Hom(\Gamma_{1}, G),\quad \rho \mapsto \rho \circ f$  is analytic (or regular). 
+	   \item If $\phi:G_{1}\to G_{2}$ is a homomorphism, then the induced map $ \phi^* : \Hom(\Gamma, G_{1}) \to \Hom(\Gamma, G_{2}), \rho \mapsto \phi \circ \rho$ is analytic (or regular).		   
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	See \cite[Lemma 1.2.7]{maret_note_nodate}
+\end{proof} 
+
+Among $\operatorname{Aut(G)}$ normal subgroups, one is particularly important, the group of inner automorphisms $\operatorname{Inn}(G)$ defined by conjugation with elements of $G$. The action of Inn(G) on Hom(Γ, G) is fundamental in many geometric situations: for example, holonomy representations of surface structures are only well-defined up to conjugation by G. This motivates the study of the quotient  Hom(Γ, G)/Inn(G),
+
+
+\begin{definition}[Free action]
+	
+\end{definition}
+
+
+\begin{definition}[Proper action]
+	
+\end{definition}
+
+
+\begin{definition}[polystable representations]
+\end{definition}
+
+
+\begin{theorem}[Nagata]
+\end{theorem}
+
 
 \section{GIT quotient}
 
