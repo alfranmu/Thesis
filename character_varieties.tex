@@ -64,16 +64,46 @@ The representation variety $\Hom(\Gamma,G)$, has two natural symmetries given by
 	See \cite[Lemma 1.2.7]{maret_note_nodate}
 \end{proof} 
 
-Among $\operatorname{Aut(G)}$ normal subgroups, one is particularly important, the group of inner automorphisms $\operatorname{Inn}(G)$ defined by conjugation with elements of $G$. The action of Inn(G) on Hom(Γ, G) is fundamental in many geometric situations: for example, holonomy representations of surface structures are only well-defined up to conjugation by G. This motivates the study of the quotient  Hom(Γ, G)/Inn(G),
+Among $\operatorname{Aut(G)}$ normal subgroups, one is particularly important, the subgroup of inner automorphisms $\operatorname{Inn}(G)$ defined by conjugation with elements of $G$. In  particular, $\Inn(G)=G/Z(G)$. The action of $\operatorname{Inn}(G)$ on $\Hom(\Gamma, G)$ is fundamental in many geometric situations: for example, holonomy representations of surface structures are only well-defined up to conjugation by G. This motivates the study of the quotient $ \operatorname{Hom}(\Gamma, G)/\operatorname{Inn}(G)$,
 
 
-\begin{definition}[Free action]
-	
+
+
+\subsection{Characterizations of the orbits of the $\operatorname{Inn}(G)$-action }
+
+\begin{lemma}
+	The $\operatorname{Inn}(G)$-action is free on the $\operatorname{Inn}(G)$-invariant subset that consists of all the  representations $\phi$ such that $Z(G) = Z(\phi)$. Where $Z(\phi)$ is the centralizer of the image of $\phi$.
+\end{lemma}
+
+\begin{proof}
+	Let $\phi$ be a representation satisfying the condition above. Let $\Psi_g \in \Inn(G)$, suppose that $\Psi_g(\phi) = \phi$, that is $g \phi g^{-1} = \phi$. Then $g \in Z(\phi) = Z(G)$, then $ \Psi_g(h)= g h g^{-1}=h$ for every $h \in G$, therefore $\Psi_g =e$
+\end{proof}
+
+
+\begin{proposition}[\cite{goldmanSymplecticNatureFundamental1984}]
+	The action of $\Inn(G)$ on $\Hom(\Gamma,G)$ is locally free at $\phi$ if and only  if  $\operatorname{dim} Z(G)= \dim Z(\phi)$.
+\end{proposition}
+\begin{proof}
+	\cite[Proposition 8]{casimiroCharacterVarietiesTheir2026}.
+\end{proof}
+
+The latter proposition motivates the following definition.
+
+\begin{definition}
+	A representation $\phi \in \Hom(\Gamma,G)$  is called regular if  $\dim Z(G) = \dim Z(\phi)$ and very regular if $Z(G)= Z(\phi)$.
 \end{definition}
 
 
-\begin{definition}[Proper action]
-	
+
+We denote by $\Homreg(\Gamma,G)$, the $\Inn(G)$-invariant subspace of regular representations.  The $\Inn(G)$-invariant subspace of very regular representations is denoted by $\Homvreg(\Gamma,G)$.  
+
+
+
+\begin{definition}
+	A proper group action is a continuous group action of a topological group $G$ on topological space $X$ for wich the map \[
+		G \times X \to X\times X, (g,x) \to (gx,x)
+	\]
+	is a proper map, i.e., inverse images of compact sets are compact.
 \end{definition}
 
 

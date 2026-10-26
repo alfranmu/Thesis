@@ -2,6 +2,32 @@
 
 Let $k$ denote an algebraically closed field of characteristic zero. We will use the letter $e$ to denote the identity element of a group, and $T_pM$ for the tangent space of a manifold $M$ at a point $p$.
 
+
+\section{Some very quick group theory}
+
+In this section we recall some concepts of group theory, if the reader is familiar with it, they can skip it. Let $G$ be a group acting on a set $X$. 
+
+\begin{definition}
+	The centralizer of a subset $S \subset G$ is denoted $Z(S):= \{g \in G: gsg^{-1} =s\}$.
+\end{definition}
+
+the centralizer of $S$ is the subset of all elements of $G$ that commute with all elements of $S$
+
+\begin{definition}
+	The stabilizer of a point $x \in X$ is the subgroup of $G$, $G_x = \{g \in G: g(x)=x\}$.
+\end{definition}
+
+\nocite{tuIntroductoryLecturesEquivariant2020}
+
+\begin{definition}[Free action]
+	We say the action of a group $G$ is free if $G_x = \{e\}$ for every $x \in X$
+\end{definition}
+
+\begin{definition}
+	Let $ G$ be a topological group, then say the action of $G$ on $X$ is locally free if the stabilizer $G_x$ of every point $x$ is discrete.
+\end{definition}
+
+
 \section{Lie Groups and Their Lie Algebras}
 
 A \emph{Lie group} $G$ is a group endowed with the additional structure of a smooth manifold, such that the group operations of multiplication and inversion are smooth maps. A \emph{homomorphism} $\varphi : G_1 \to G_2$ of Lie groups is a map that is both a group homomorphism and smooth as a map of manifolds.
@@ -10,7 +36,7 @@ A \emph{Lie group} $G$ is a group endowed with the additional structure of a smo
     A \emph{Lie subgroup} of a Lie group $G$ is an injective homomorphism of Lie groups $i : H \to G$.
 \end{definition}
 
-Every Lie group admits an analytic atlas, unique up to analytic diffeomorphism, with respect to which multiplication and inversion are analytic maps (cf.\ \cite[Prop.\ 1.117]{KnappAnthonyW.1996LGBa}). The standard examples of Lie groups are $\GL_n(\RR)$, $\GL_n(\bC)$, and their closed subgroups, which are called \emph{linear Lie groups}.
+Every Lie group admits an analytic atlas, unique up to analytic diffeomorphism, with respect to which multiplication and inversion are analytic maps (cf.\ \cite[Prop.\ 1.117]{KnappAnthonyW.1996LGBa}). The standard examples of Lie groups are $\GL_n(\RR)$, $\GL_n(\CC)$, and their closed subgroups, which are called \emph{linear Lie groups}.
 
 Let $g$ be an arbitrary element of the Lie group $G$. We write $L_g$ for left translation by $g$, that is, $L_g(h) = gh$ for all $h \in G$. The group axioms imply that $L_g$ is a diffeomorphism with inverse $(L_g)^{-1} = L_{g^{-1}}$, so its differential $dL_g : TG \to TG$ is likewise a diffeomorphism; in particular, for each $h \in G$, the restriction $dL_g : T_hG \to T_{gh}G$ is a linear isomorphism.
 
