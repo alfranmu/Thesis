@@ -1,25 +1,28 @@
 \section{Representation variety}
-We refer to \cite{maret_note_nodate, casimiroCharacterVarietiesTheir2026} for further details.
-
-
-Let $\Gamma$ be a finitely generated group and $G$ be a (complex or real) Lie Group.
+For this chapter we follow \cite{maret_note_nodate, casimiroCharacterVarietiesTheir2026}. Throughout, $\Gamma$ denotes a finitely generated group and $G$ a (real or complex) Lie group.
 
 \begin{definition}
-	Given a finitely generated group $\Gamma$ and a Lie Group, we define the representation variety denoted by $\operatorname{Hom}(\Gamma,G)$ as 	
-	$$ \operatorname{Hom}(\Gamma,G) = \{\rho: \Gamma \to G | \rho \text{ is a group homomorphism}\} $$	
+    The \emph{representation variety} of $\Gamma$ in $G$ is the set
+    \[
+        \Hom(\Gamma, G) = \{ \rho : \Gamma \to G \mid \rho \text{ is a group homomorphism} \}.
+    \]
+    Its elements are called \emph{representations}.
 \end{definition}
-the elements $\varphi \in \Hom(\Gamma,G)$ are called representations.
 
-The representation variety carries the subspace topology induced from the compact-open topology on the space of continuous maps $\Gamma \to G$ where $\Gamma$ is endowed with the discrete topology. A subbasis for this topology is given by the sets
-$$ V(K,U) = \{f: \Gamma \to G | K \subset \Gamma \text{ finite}, U \subset \text{ open}, f(K)\subset U \}$$
+We endow $\Hom(\Gamma, G)$ with the subspace topology induced from the compact-open topology on the space of continuous maps $\Gamma \to G$, where $\Gamma$ carries the discrete topology. Since the compact subsets of a discrete space are the finite ones, a subbasis for this topology is given by the sets
+\[
+    V(K, U) = \{ \rho \in \Hom(\Gamma, G) : \rho(K) \subseteq U \},
+\]
+where $K \subseteq \Gamma$ is finite and $U \subseteq G$ is open.
+
+Fix a set of generators $\{\gamma_1, \dots, \gamma_n\}$ of $\Gamma$. It is customary to identify the representation variety with the space of tuples of images of the generators,
+\[
+    X(\Gamma, G) = \{ (\rho(\gamma_1), \dots, \rho(\gamma_n)) : \rho \in \Hom(\Gamma, G) \} \subseteq G^n.
+\]
+The following proposition justifies both this identification and the name ``variety''.
 
 
-It is usual to think of the representation variety as the space 
-$$ X(\Gamma, G) = \{\rho(\gamma_{1}), \dots, \rho(\gamma_n) | \rho \in \operatorname{Hom}(\Gamma, G)   \} \subset G^n$$
-
-Indeed, we will see that this space is homeomorphic to the representation variety
-
-\begin{proposition}
+\begin{proposition} \label{prop:analytic-structure}
  If $G$ is a Lie group endowed with an analityc atlas then $X(\Gamma,G)$ is an analytic subvariety of $G^n$, homeomorphic to $\Hom(\Gamma,G)$. In particular $\Hom(\Gamma,G)$ inherits a natural structure of analityc variety wich is independent of the choice of generators of $\Gamma$.  	
 \end{proposition}
 
@@ -49,10 +52,13 @@ If $(\gamma'_{1},\dots,\gamma'_n)$ is another set of generators of $\Gamma$ and 
 \end{proposition}
 
 \begin{proof}
-	The proof is analogous to the previous one.
+    The proof is analogous to that of Proposition~\ref{prop:analytic-structure}, replacing ``analytic'' by ``regular'': word maps are regular because multiplication and inversion in $G$ are.
 \end{proof}
 
-The representation variety $\Hom(\Gamma,G)$, has two natural symmetries given by the right action of the group $\operatorname{Aut}(\Gamma)$ of automorphisms of $\Gamma$ by pre-composition and the left action of $\operatorname{Aut}(G)$ by post-composition. Both actions preserve the analytic or algebraic structure of $\Hom(\Gamma,G)$ as a consequence of the next proposition
+
+
+
+The representation variety $\Hom(\Gamma,G)$, carries two natural symmetries given by the right action of the group $\operatorname{Aut}(\Gamma)$ of automorphisms of $\Gamma$ by pre-composition and the left action of $\operatorname{Aut}(G)$ by post-composition. Both actions preserve the analytic or algebraic structure of $\Hom(\Gamma,G)$ as a consequence of the next proposition
 \begin{proposition}
 	Let $\Gamma, \Gamma_{1},\Gamma_{2}$ be finitely generated groups, and let $G,G_{1},G_{2}$ be Lie or algebraic groups.
 	\begin{enumerate}
@@ -67,16 +73,22 @@ The representation variety $\Hom(\Gamma,G)$, has two natural symmetries given by
 Among $\operatorname{Aut(G)}$ normal subgroups, one is particularly important, the subgroup of inner automorphisms $\operatorname{Inn}(G)$ defined by conjugation with elements of $G$. In  particular, $\Inn(G)=G/Z(G)$. The action of $\operatorname{Inn}(G)$ on $\Hom(\Gamma, G)$ is fundamental in many geometric situations: for example, holonomy representations of surface structures are only well-defined up to conjugation by G. This motivates the study of the quotient $ \operatorname{Hom}(\Gamma, G)/\operatorname{Inn}(G)$,
 
 
-
-
 \subsection{Characterizations of the orbits of the $\operatorname{Inn}(G)$-action }
 
-\begin{lemma}
-	The $\operatorname{Inn}(G)$-action is free on the $\operatorname{Inn}(G)$-invariant subset that consists of all the  representations $\phi$ such that $Z(G) = Z(\phi)$. Where $Z(\phi)$ is the centralizer of the image of $\phi$.
+For a representation $\rho \in \Hom(\Gamma, G)$ we write $Z(\rho) := Z(\rho(\Gamma))$ for the centralizer of its image. Note that $Z(G) \subseteq Z(\rho)$ always, and that $Z(c_g \cdot \rho) = g Z(\rho) g^{-1}$.
+
+\begin{definition}
+    A representation $\rho \in \Hom(\Gamma, G)$ is called \emph{regular} if $\dim Z(\rho) = \dim Z(G)$, and \emph{very regular} if $Z(\rho) = Z(G)$. We denote by $\Homreg(\Gamma, G)$ and $\Homvreg(\Gamma, G)$ the subsets of regular and very regular representations, respectively.
+\end{definition}
+
+Both subsets are $\Inn(G)$-invariant: conjugation preserves dimensions, and $g Z(G) g^{-1} = Z(G)$ for every $g \in G$.
+ 
+\begin{lemma}\label{lem:free-action}
+    The action of $\Inn(G)$ on $\Homvreg(\Gamma, G)$ is free.
 \end{lemma}
 
 \begin{proof}
-	Let $\phi$ be a representation satisfying the condition above. Let $\Psi_g \in \Inn(G)$, suppose that $\Psi_g(\phi) = \phi$, that is $g \phi g^{-1} = \phi$. Then $g \in Z(\phi) = Z(G)$, then $ \Psi_g(h)= g h g^{-1}=h$ for every $h \in G$, therefore $\Psi_g =e$
+    Let $\rho \in \Homvreg(\Gamma, G)$ and suppose that $c_g \cdot \rho = \rho$, that is, $g \rho(\gamma) g^{-1} = \rho(\gamma)$ for all $\gamma \in \Gamma$. Then $g \in Z(\rho) = Z(G)$, so $c_g(h) = ghg^{-1} = h$ for every $h \in G$. Hence $c_g$ is the identity of $\Inn(G)$.
 \end{proof}
 
 
@@ -84,27 +96,75 @@ Among $\operatorname{Aut(G)}$ normal subgroups, one is particularly important, t
 	The action of $\Inn(G)$ on $\Hom(\Gamma,G)$ is locally free at $\phi$ if and only  if  $\operatorname{dim} Z(G)= \dim Z(\phi)$.
 \end{proposition}
 \begin{proof}
-	\cite[Proposition 8]{casimiroCharacterVarietiesTheir2026}.
+  See	\cite[Proposition 8]{casimiroCharacterVarietiesTheir2026}.
 \end{proof}
 
-The latter proposition motivates the following definition.
-
-\begin{definition}
-	A representation $\phi \in \Hom(\Gamma,G)$  is called regular if  $\dim Z(G) = \dim Z(\phi)$ and very regular if $Z(G)= Z(\phi)$.
-\end{definition}
-
-
-
-We denote by $\Homreg(\Gamma,G)$, the $\Inn(G)$-invariant subspace of regular representations.  The $\Inn(G)$-invariant subspace of very regular representations is denoted by $\Homvreg(\Gamma,G)$.  
-
-
-
+To obtain a well-behaved quotient we also need the action to be proper.
 \begin{definition}
 	A proper group action is a continuous group action of a topological group $G$ on topological space $X$ for wich the map \[
 		G \times X \to X\times X, (g,x) \to (gx,x)
 	\]
 	is a proper map, i.e., inverse images of compact sets are compact.
 \end{definition}
+
+
+\begin{definition}
+	let $G$ be an algebraic group. A Borel subgroup of $G$ is a maximal, Zariski closed, solvable connected subgroup of $G$. A Zariski closed subgroup that contains a Borel subgroup is called a parabolic subgroup.
+\end{definition}
+
+
+\begin{definition}
+	Let $G$ be an algebraic group. A representation $\phi: \Gamma \to G$ is called irreducible if the image of $\phi$ does not lie in a proper parabolic subgroup of $G$. We denote by $\Hom ^{\text{irr}}(\Gamma,G)$ the $\Inn(G)-$invariant subspace of irreducible representations.
+\end{definition}
+
+
+\begin{theorem}
+	Let $G$ be a reductive algebraic group. The $\Inn(G)$-action on $\Hom ^{\text{irr}}(\Gamma,G)$  is proper.
+\end{theorem}
+
+\begin{proof}
+    See \cite[Prop.~1.1]{JohnsonDennis1987DSAt}.
+\end{proof}
+
+
+Properness guarantees that the quotient by $\Inn(G)$ behaves well topologically: the orbits are closed and the quotient space is Hausdorff.
+
+\begin{definition}
+    Let $G$ be an algebraic group. A representation $\rho : \Gamma \to G$ is called \emph{good} if it is irreducible and very regular. We denote by $\Homgd(\Gamma, G)$ the $\Inn(G)$-invariant subset of good representations.
+\end{definition}
+
+
+By Lemma~\ref{lem:free-action} and Theorem~\ref{thm:proper-action}, the conjugation action on $\Homgd(\Gamma, G)$ is both free and proper. Hence, whenever $\Homgd(\Gamma, G)$ is a manifold, the quotient by conjugation inherits the structure of an analytic manifold. This happens, for instance, for closed surface groups.
+
+\begin{proposition}\label{prop:good-surface}
+    Let $G$ be a reductive algebraic group.
+    \begin{enumerate}
+        \item $\Homgd(\Gamma, G)$ is Zariski open in $\Hom(\Gamma, G)$.
+        \item If $\Gamma = \pi_{g,0}$, then:
+        \begin{enumerate}
+            \item $\Homgd(\pi_{g,0}, G)$ is an analytic manifold of dimension $(2g-1)\dim G + \dim Z(G)$;
+            \item the conjugation action on $\Homgd(\pi_{g,0}, G)$ is free and proper;
+            \item the quotient $\Homgd(\pi_{g,0}, G) / \Inn(G)$ is an analytic manifold of dimension $(2g-2)\dim G + 2\dim Z(G)$, which is always even.
+        \end{enumerate}
+    \end{enumerate}
+\end{proposition}
+
+\begin{definition}
+    An algebraic group is called \emph{linearly reductive} if all its finite-dimensional representations are completely reducible, i.e.\ decompose as direct sums of simple subrepresentations. A subgroup of an algebraic group is called \emph{completely reducible} if its Zariski closure is linearly reductive.
+\end{definition}
+
+Over $\RR$ or $\bC$, an algebraic group is linearly reductive if and only if its Zariski identity component is reductive (see \cite[]). This equivalence allows us to use both notions interchangeably in most geometric contexts.
+
+\begin{definition}
+    Let $G$ be an algebraic group. A representation $\rho : \Gamma \to G$ is called \emph{reductive} (or \emph{completely reducible}) if $\rho(\Gamma) \subseteq G$ is completely reducible. We denote by $\Homred(\Gamma, G)$ the $\Inn(G)$-invariant subset of reductive representations.
+\end{definition}
+
+\begin{proposition}[\cite{TODO-ref-17, TODO-ref-47}]\label{prop:closed-orbits}
+    Let $G$ be a reductive algebraic group. A representation $\rho : \Gamma \to G$ is reductive if and only if its conjugation orbit $\mathcal{O}_\rho$ is closed in $\Hom(\Gamma, G)$.
+\end{proposition}
+ 
+As a consequence of Proposition~\ref{prop:closed-orbits}, the topological quotient $\Homred(\Gamma, G) / \Inn(G)$ is a $T_1$-space. Moreover, it is in fact Hausdorff (see \cite{TODO-ref-45}). This provides a natural and geometrically meaningful setting in which to define the character variety associated with the pair $(\Gamma, G)$.
+
 
 
 \begin{definition}[polystable representations]
