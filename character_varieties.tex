@@ -1,5 +1,5 @@
 \section{Representation variety}
-For this chapter we follow \cite{maret_note_nodate, casimiroCharacterVarietiesTheir2026}. Throughout, $\Gamma$ denotes a finitely generated group and $G$ a (real or complex) Lie group.
+For this chapter we follow mostly \cite{maret_note_nodate, casimiroCharacterVarietiesTheir2026}. Throughout, $\Gamma$ denotes a finitely generated group and $G$ a (real or complex) Lie group.
 
 \begin{definition}
     The \emph{representation variety} of $\Gamma$ in $G$ is the set
@@ -108,9 +108,33 @@ To obtain a well-behaved quotient we also need the action to be proper.
 \end{definition}
 
 
+Properness guarantees that the quotient by $\Inn(G)$ behaves well topologically as we can see in the next proposition.
+
+\begin{proposition}
+	If a topological group $G$ operates properly on a topological space $X$, then the orbit space $X/G$ is Hausdorff. If also $G$ is Hausdorff, then $X$ is Hausdorff.
+\end{proposition}
+
+\begin{proof}
+	See \cite[Prop. 3]{Bourbaki1967-qa}
+\end{proof}
+
+If we add freeness to the properness hypothesis, we obtain an analityc structure for the cocient.
+
+
+\begin{theorem}\label{thm:analytic-quotient}
+    Let $G$ be an analytic Lie group acting analytically, properly, and freely on an analytic manifold $X$. Then the orbit space $X/G$, endowed with the quotient topology, is a Hausdorff space. Furthermore, there exists a unique analytic manifold structure on $X/G$ such that the canonical projection $\pi: X \to X/G$ is an analytic submersion.
+\end{theorem}
+
+\begin{proof}
+	See \cite[Chap.~III, \S 1.5, Prop.~10]{Bourbaki1975-gf}
+\end{proof}
+
 \begin{definition}
-	let $G$ be an algebraic group. A Borel subgroup of $G$ is a maximal, Zariski closed, solvable connected subgroup of $G$. A Zariski closed subgroup that contains a Borel subgroup is called a parabolic subgroup.
+	Let $G$ be an algebraic group. A Borel subgroup of $G$ is a maximal, Zariski closed, solvable connected subgroup of $G$. A Zariski closed subgroup that contains a Borel subgroup is called a parabolic subgroup.
+
 \end{definition}
+
+
 
 
 \begin{definition}
@@ -127,7 +151,6 @@ To obtain a well-behaved quotient we also need the action to be proper.
 \end{proof}
 
 
-Properness guarantees that the quotient by $\Inn(G)$ behaves well topologically: the orbits are closed and the quotient space is Hausdorff.
 
 \begin{definition}
     Let $G$ be an algebraic group. A representation $\rho : \Gamma \to G$ is called \emph{good} if it is irreducible and very regular. We denote by $\Homgd(\Gamma, G)$ the $\Inn(G)$-invariant subset of good representations.
@@ -150,20 +173,25 @@ By Lemma~\ref{lem:free-action} and Theorem~\ref{thm:proper-action}, the conjugat
 \end{proposition}
 
 \begin{definition}
-    An algebraic group is called \emph{linearly reductive} if all its finite-dimensional representations are completely reducible, i.e.\ decompose as direct sums of simple subrepresentations. A subgroup of an algebraic group is called \emph{completely reducible} if its Zariski closure is linearly reductive.
+    An algebraic group is called \emph{linearly reductive} if all its finite-dimensional representations are completely reducible, i.e. decompose as direct sums of simple subrepresentations. A subgroup of an algebraic group is called \emph{completely reducible} if its Zariski closure is linearly reductive.
 \end{definition}
 
-Over $\RR$ or $\CC$, an algebraic group is linearly reductive if and only if its Zariski identity component is reductive (see \cite[]). This equivalence allows us to use both notions interchangeably in most geometric contexts.
+Over $\RR$ or $\CC$, an algebraic group is linearly reductive if and only if its Zariski identity component is reductive (see \cite[Corollary 22.43]{milneAlgebraicGroupsTheory2017}). This equivalence allows us to use both notions interchangeably in most geometric contexts.
 
 \begin{definition}
     Let $G$ be an algebraic group. A representation $\rho : \Gamma \to G$ is called \emph{reductive} (or \emph{completely reducible}) if $\rho(\Gamma) \subseteq G$ is completely reducible. We denote by $\Homred(\Gamma, G)$ the $\Inn(G)$-invariant subset of reductive representations.
 \end{definition}
 
-\begin{proposition}[\cite{TODO-ref-17, TODO-ref-47}]\label{prop:closed-orbits}
+\begin{proposition}[\cite{florentinoTopologyModuliSpaces2009, sikoraCharacterVarieties2012}]\label{prop:closed-orbits}
     Let $G$ be a reductive algebraic group. A representation $\rho : \Gamma \to G$ is reductive if and only if its conjugation orbit $\mathcal{O}_\rho$ is closed in $\Hom(\Gamma, G)$.
 \end{proposition}
  
-As a consequence of Proposition~\ref{prop:closed-orbits}, the topological quotient $\Homred(\Gamma, G) / \Inn(G)$ is a $T_1$-space. Moreover, it is in fact Hausdorff (see \cite{TODO-ref-45}). This provides a natural and geometrically meaningful setting in which to define the character variety associated with the pair $(\Gamma, G)$.
+As a consequence of Proposition~\ref{prop:closed-orbits}, the topological quotient $\Homred(\Gamma, G) / \Inn(G)$ is a $T_1$-space. Moreover, it is in fact Hausdorff (see \cite{richardsonMinimumVectorsReal1990}). This provides a natural and geometrically meaningful setting in which to define the character variety associated with the pair $(\Gamma, G)$.
+
+
+
+
+\section{GIT quotient}
 
 
 
@@ -173,11 +201,6 @@ As a consequence of Proposition~\ref{prop:closed-orbits}, the topological quotie
 
 \begin{theorem}[Nagata]
 \end{theorem}
-
-
-\section{GIT quotient}
-
-
 
 \section{Character variety}
 
