@@ -208,25 +208,43 @@ As a consequence of Proposition~\ref{prop:closed-orbits}, the topological quotie
 This provides a natural and geometrically meaningful setting in which to define the character variety associated with the pair $(\Gamma, G)$.
 
 
+%%TODO: Add an example
 \section{GIT Quotient}
 
 As we saw in the previous section, the conjugation action of $\Inn(G)$ on $\Hom(\Gamma, G)$ yields an analytic, or at least Hausdorff, quotient only under certain conditions, and these conditions rarely hold on the whole representation variety. A first remedy is to restrict to reductive representations: the quotient $\Homred(\Gamma, G)/\Inn(G)$ is Hausdorff, although it is merely a topological space. On the other hand, $\Hom(\Gamma, G)$ is also an algebraic variety, and this additional structure is lost when passing to the topological quotient. In this section we construct a quotient that retains the algebraic structure, using the tools of geometric invariant theory (GIT).
 
 
 \nocite{zamorasaizGeometricInvariantTheory2021}
-\begin{definition}
-	On an algebraic variety, we define regular functions $f:X \to k$ such that for each $x \in X$, there is a neighboorhood $x \in U \subset X$ where $f= g/h$ is described as a quotient in polynomials in $k[X_1,\dots X_n]$ and $h$ does not vanishes on U.
+
+We start by noticing that a $G-$action on $X$ defines an action on its regular function ring $\CC(X)$ by $$ f \mapsto f^g(x) \in \CC[X], \quad \text{where} \quad f^g(x):= f(gx)$$
+
+For our purpose of constructing an algebraic quotient, we will focus on the functions that remain constant on the orbits.
+
+\begin{definition}[Invariant functions]
+	The ring of invariant functions is defined as 
+	$$ \CC[X]^G := \{f \in \CC[X]: f^g=f \text{ for all } g \in G\}$$
 \end{definition}
 
+A key result in this subject is the following theorem:
+
+
+
+
+\begin{theorem}[Nagata]
+Let $G$ be an algebraic reductive (or semi-reductive) group acting on $\CC[X]^G$. Thenthe ring of invariants $\CC[X]^G$ is a finitely generated $k-$algebra.
+\end{theorem}
+
+Nagata's original result is a little more general and can be found in \cite{nagataInvariantsGroupAffine1963}. 
+
+
+Having stated Nagata's theorem, proposition \ref{prop:kalgebras-affinevar} tell us that $\CC[X]^G$ is the algebra of regular functions of some affine variety. Now we will see how to construct such variety
 
 
 \begin{definition}[polystable representations]
 \end{definition}
 
 
-\begin{theorem}[Nagata]
-\end{theorem}
-
 \section{Character variety}
+
 
 \subsection{Betti character variety}
