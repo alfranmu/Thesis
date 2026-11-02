@@ -11,7 +11,25 @@ In this section we recall some basic notions of group theory; readers familiar w
 
 \subsection{Group actions}
 
-Throughout this subsection, let $G$ be a group acting on a set $X$, and write $g \cdot x$ for the action of $g \in G$ on $x \in X$.
+
+\begin{definition}
+    A \emph{left action} of a group $G$ on a set $X$, also called a \emph{$G$-action}, is a map
+    \[
+        G \times X \to X, \qquad (g, x) \mapsto g \cdot x,
+    \]
+    such that, for all $g_1, g_2 \in G$ and $x \in X$,
+    \[
+        g_1 \cdot (g_2 \cdot x) = (g_1 g_2) \cdot x \qquad \text{and} \qquad e \cdot x = x.
+    \]
+    A \emph{right action} is defined analogously, as a map $X \times G \to X$, $(x, g) \mapsto x \cdot g$, such that
+    \[
+        (x \cdot g_1) \cdot g_2 = x \cdot (g_1 g_2) \qquad \text{and} \qquad x \cdot e = x
+    \]
+    for all $g_1, g_2 \in G$ and $x \in X$.
+\end{definition}
+
+Every left action induces a right action via $x \cdot g := g^{-1} \cdot x$, and conversely, so it suffices to work with left actions. Throughout this subsection, $G$ denotes a group acting on a set $X$ on the left.
+
 
 \begin{definition}
     The \emph{centralizer} of a subset $S \subseteq G$ is
@@ -145,7 +163,7 @@ A connected Lie group is called simple, semisimple, or reductive according to wh
 
 \section{Algebraic Varieties and Algebraic Groups}
 
-The \emph{affine $n$-space} over $k$, denoted $\mathbb{A}_k^n$ or simply $\mathbb{A}^n$, is the set of all $n$-tuples of elements of $k$.
+The \emph{affine $n$-space} over $k$, denoted $\mathbb{A}_k^n$ or simply $\mathbb{A}^n$, is the set $k^n$ of all $n$-tuples of elements of $k$.
 
 \begin{definition}
     Let $T \subseteq k[x_1, \dots, x_n]$ be a set of polynomials. The \emph{zero locus} of $T$ is
@@ -154,14 +172,53 @@ The \emph{affine $n$-space} over $k$, denoted $\mathbb{A}_k^n$ or simply $\mathb
     \]
 \end{definition}
 
-Sets of this form are called \emph{algebraic varieties}\footnote{Most of the literature refers to these as \emph{algebraic sets}; here we follow the convention of \cite{maret_note_nodate, casimiroCharacterVarietiesTheir2026}.}. It is straightforward to verify that algebraic varieties form the closed sets of a topology on $\mathbb{A}^n$, called the \emph{Zariski topology}.
+Sets of this form are called \emph{algebraic sets}\footnote{Most of the modern literature uses this term; however, some authors, e.g.\ \cite{maret_note_nodate, casimiroCharacterVarietiesTheir2026}, call them \emph{algebraic varieties}. In this text we reserve the term \emph{affine variety} for irreducible algebraic sets (see below), although ``variety'' is also used more loosely, for instance in ``representation variety''.}. It is straightforward to verify that the algebraic sets are the closed sets of a topology on $\mathbb{A}^n$, called the \emph{Zariski topology}.
 
-A map $f : X \to Y$ between algebraic varieties is a \emph{regular map} (or \emph{morphism}) if, locally on $X$, its coordinate functions are given by polynomials.
+A map $f : X \to Y$ between algebraic varieties is a \emph{regular map} (or \emph{morphism}) if, locally on $X$, its coordinate functions are given by polynomials. A regular function is a regular map $f: X \to k$. It is straightforward to verify that these functions form a ring, we denote the ring of regular functions of $X$ by $\CC[X]$.
+
+Conversely, to any subset of affine space we can associate a set of polynomials.
+\begin{definition}
+	For every $X \subset \mathbb{A}^n$ we define its ideal $I(X)$ as the set of all polynomials in $k[x_1, \dots, x_n]$ that vanish on $Y$.
+\end{definition}
+
+For an algebraic set $X \subseteq \mathbb{A}^n$, the quotient ring
+\[
+    A(X) = k[x_1, \dots, x_n] / I(X)
+\]
+is called the \emph{coordinate ring} of $X$. It is straightforward to check that $A(X)$ is a finitely generated $k$-algebra and that it is reduced, that is, it has no nonzero nilpotent elements.
+
+Hilbert's Nullstellensatz relates the two constructions $V$ and $I$.
+
+\begin{theorem}[Hilbert's Nullstellensatz]\label{thm:nullstellensatz}
+    Let $J \subseteq k[x_1, \dots, x_n]$ be an ideal. Then $I(V(J)) = \sqrt{J}$, where $\sqrt{J} = \{ f : f^m \in J \text{ for some } m \geq 1 \}$ is the radical of $J$.
+\end{theorem}
+
+
+\begin{proof}
+	See \cite[Chap. VII, thm 14]{zariskiCommutativeAlgebra1986}
+\end{proof}
+
+Consequently, $V$ and $I$ are mutually inverse, inclusion-reversing bijections between the algebraic sets in $\mathbb{A}^n$ and the radical ideals of $k[x_1, \dots, x_n]$.
+
+\begin{definition}
+	An affine variety is an irreducible algebraic subset of the affine space with the inherited Zariski topology.
+\end{definition}
+
+Under the bijection above, affine varieties correspond exactly to prime ideals (cf.\ \cite[Prop.~11.2.3]{tauvelLieAlgebrasAlgebraic2005}); in particular, the coordinate ring of an affine variety is an integral domain ( cf. \cite[Prop.~1.2.6]{blandRingsTheirModules2011}). Moreover, the ring of regular functions on an algebraic set coincides with its coordinate ring: $k[X] = A(X)$. These facts lead to the following characterization of coordinate rings.
+
+\begin{proposition}
+	Any finitely generated $k-$algebra $A$ that is also an integral domain is isomorphic to the algebra of regular functions over some affine algebraic variety.
+\end{proposition}
+
+\begin{proof}
+	This result follows from \cite[Ch.~15, Cor.~5]{dummitAbstractAlgebra2004}.
+\end{proof}
+
 
 With these notions in hand, we turn to algebraic groups.
 
 \begin{definition}
-    An \emph{algebraic group} $G$ is an algebraic variety equipped with a group structure such that the multiplication map $m : G \times G \to G$, $(g,h) \mapsto gh$, and the inversion map $i : G \to G$, $g \mapsto g^{-1}$, are regular morphisms of varieties.
+    An \emph{algebraic group} $G$ is an algebraic set equipped with a group structure such that the multiplication map $m : G \times G \to G$, $(g,h) \mapsto gh$, and the inversion map $i : G \to G$, $g \mapsto g^{-1}$, are regular morphisms of varieties.
 \end{definition}
 
 Standard examples of algebraic groups include the one-dimensional additive group $\mathbb{G}_a = k$ and the multiplicative group $\mathbb{G}_m = k \setminus \{0\}$. Furthermore, the general linear group $\GL_n(k)$ is an algebraic group, and any closed subgroup (under the Zariski topology) naturally inherits this structure. This yields a rich family of examples, such as the special linear group $\SL_n(k)$, the subgroups of diagonal or triangular matrices, and the classical symplectic and orthogonal groups ($\mathrm{Sp}_{2n}(k)$ and $\mathrm{O}_{m}(k)$), which are cut out by polynomial equations preserving specific bilinear forms.

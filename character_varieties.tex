@@ -1,5 +1,6 @@
 \section{Representation variety}
-For this chapter we follow mostly \cite{maret_note_nodate, casimiroCharacterVarietiesTheir2026}. Throughout, $\Gamma$ denotes a finitely generated group and $G$ a (real or complex) Lie group.
+For this chapter we mostly follow \cite{maret_note_nodate, casimiroCharacterVarietiesTheir2026}. Throughout, $\Gamma$ denotes a finitely generated group and $G$ a (real or complex) Lie group.
+
 
 \begin{definition}
     The \emph{representation variety} of $\Gamma$ in $G$ is the set
@@ -27,7 +28,7 @@ The following proposition justifies both this identification and the name ``vari
 \end{proposition}
 
 \begin{proof}
-	Let $\{\gamma_{1}, \dots, \gamma_n\}$ be a set of generators of $\gamma$, and let $r_i$ denote the set of relations for these generators. Recall that every group homomorphis is defined by the image of its generators, and those images have to preserve the relations between the generators. Each relation can be thought as a map $r_i:\Gamma^n \to \Gamma$, since this map is just a composition of inversions and multiplications, then each $r_i$ is analytic. Then $X(\Gamma,G)$ is precisely the subset of $(g_{1},\dots,g_n) \in G^n$ defined by the conditions $r_i(g_{1},\dots,g_n)=1$. It is clear that we have an isomorphism
+	Let $\{\gamma_{1}, \dots, \gamma_n\}$ be a set of generators of $\Gamma$, and let $r_i$ denote the set of relations for these generators. Recall that every group homomorphis is defined by the image of its generators, and those images have to preserve the relations between the generators. Each relation can be thought as a map $r_i:G^n \to G$, since this map is just a composition of inversions and multiplications, then each $r_i$ is analytic. Then $X(\Gamma,G)$ is precisely the subset of $(g_{1},\dots,g_n) \in G^n$ defined by the conditions $r_i(g_{1},\dots,g_n)=1$. It is clear that we have a bijection.
 	\[
 		\Psi: \Hom(\Gamma,G) \to X(\Gamma,G), \quad \rho \to (\rho(\gamma_{1}),\dots,\rho(\gamma_n))
 	\]
@@ -41,7 +42,7 @@ This proves $\Psi$ is continuous. Now for its inverse, take $K \subset \Gamma$ f
 \]
 Therefore, $\Psi$ is a homeomorphism.
 
-If $(\gamma'_{1},\dots,\gamma'_n)$ is another set of generators of $\Gamma$ and $X'(\Gamma,G)$ is the associated space, then the map from $X(\Gamma,G)$ to $X(\Gamma,G)$ defined as the composition 
+If $(\gamma'_{1},\dots,\gamma'_n)$ is another set of generators of $\Gamma$ and $X'(\Gamma,G)$ is the associated space, then the map from $X(\Gamma,G)$ to $X'(\Gamma,G)$ defined as the composition 
 \[
 	X(\Gamma,G) \to \Hom(\Gamma,G) \to X'(\Gamma,G)
 \]is an isomorphism of analytic varieties. Indeed, the map sends $(\rho(\gamma_{1}),\dots,\rho(\gamma_n))$ to $(\rho(\gamma_{1}'),\dots,\rho(\gamma_n))$ . Now, since $\gamma_i'$ is a word in the generators $\gamma_{1},\dots,\gamma_n$, it follows that $\rho(\gamma_i')$ is a word in $\rho(\gamma_{1}),\dots,\rho(\gamma_n)$. This shows that the map is analytic because word maps are analytic by assumption on $G$.
@@ -63,7 +64,7 @@ The representation variety $\Hom(\Gamma,G)$, carries two natural symmetries give
 	Let $\Gamma, \Gamma_{1},\Gamma_{2}$ be finitely generated groups, and let $G,G_{1},G_{2}$ be Lie or algebraic groups.
 	\begin{enumerate}
 	   \item If $f:\Gamma_{1} \to \Gamma_{2}$ is a homomorphism, then the induced map $ f^* : \Hom(\Gamma_{2}, G) \to \Hom(\Gamma_{1}, G),\quad \rho \mapsto \rho \circ f$  is analytic (or regular). 
-	   \item If $\phi:G_{1}\to G_{2}$ is a homomorphism, then the induced map $ \phi^* : \Hom(\Gamma, G_{1}) \to \Hom(\Gamma, G_{2}), \rho \mapsto \phi \circ \rho$ is analytic (or regular).		   
+	   \item If $\phi:G_{1}\to G_{2}$ is a homomorphism, then the induced map $ \iphi_* : \Hom(\Gamma, G_{1}) \to \Hom(\Gamma, G_{2}), \rho \mapsto \phi \circ \rho$ is analytic (or regular).		   
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -74,6 +75,7 @@ Among $\operatorname{Aut(G)}$ normal subgroups, one is particularly important, t
 
 
 \subsection{Characterizations of the orbits of the $\operatorname{Inn}(G)$-action }
+In this subsection we look for subsets of the representation variety on which the conjugation action behaves well enough to yield a well-behaved quotient.
 
 For a representation $\rho \in \Hom(\Gamma, G)$ we write $Z(\rho) := Z(\rho(\Gamma))$ for the centralizer of its image. Note that $Z(G) \subseteq Z(\rho)$ always, and that $Z(c_g \cdot \rho) = g Z(\rho) g^{-1}$.
 
@@ -91,15 +93,18 @@ Both subsets are $\Inn(G)$-invariant: conjugation preserves dimensions, and $g Z
     Let $\rho \in \Homvreg(\Gamma, G)$ and suppose that $c_g \cdot \rho = \rho$, that is, $g \rho(\gamma) g^{-1} = \rho(\gamma)$ for all $\gamma \in \Gamma$. Then $g \in Z(\rho) = Z(G)$, so $c_g(h) = ghg^{-1} = h$ for every $h \in G$. Hence $c_g$ is the identity of $\Inn(G)$.
 \end{proof}
 
-
-\begin{proposition}[\cite{goldmanSymplecticNatureFundamental1984}]
-	The action of $\Inn(G)$ on $\Hom(\Gamma,G)$ is locally free at $\phi$ if and only  if  $\operatorname{dim} Z(G)= \dim Z(\phi)$.
+ 
+\begin{proposition}[\cite{goldmanSymplecticNatureFundamental1984}]\label{prop:locally-free}
+    The action of $\Inn(G)$ on $\Hom(\Gamma, G)$ is locally free at $\rho$ if and only if $\dim Z(\rho) = \dim Z(G)$, i.e.\ if and only if $\rho$ is regular.
 \end{proposition}
+
+
 \begin{proof}
   See	\cite[Proposition 8]{casimiroCharacterVarietiesTheir2026}.
 \end{proof}
 
-To obtain a well-behaved quotient we also need the action to be proper.
+Our next desired property is properness.
+
 \begin{definition}
 	A proper group action is a continuous group action of a topological group $G$ on topological space $X$ for wich the map \[
 		G \times X \to X\times X, (g,x) \to (gx,x)
@@ -107,8 +112,7 @@ To obtain a well-behaved quotient we also need the action to be proper.
 	is a proper map, i.e., inverse images of compact sets are compact.
 \end{definition}
 
-
-Properness guarantees that the quotient by $\Inn(G)$ behaves well topologically as we can see in the next proposition.
+Properness guarantees that the quotient behaves well topologically, as the next proposition shows.
 
 \begin{proposition}
 	If a topological group $G$ operates properly on a topological space $X$, then the orbit space $X/G$ is Hausdorff. If also $G$ is Hausdorff, then $X$ is Hausdorff.
@@ -118,16 +122,6 @@ Properness guarantees that the quotient by $\Inn(G)$ behaves well topologically 
 	See \cite[Prop. 3]{Bourbaki1967-qa}
 \end{proof}
 
-If we add freeness to the properness hypothesis, we obtain an analityc structure for the cocient.
-
-
-\begin{theorem}\label{thm:analytic-quotient}
-    Let $G$ be an analytic Lie group acting analytically, properly, and freely on an analytic manifold $X$. Then the orbit space $X/G$, endowed with the quotient topology, is a Hausdorff space. Furthermore, there exists a unique analytic manifold structure on $X/G$ such that the canonical projection $\pi: X \to X/G$ is an analytic submersion.
-\end{theorem}
-
-\begin{proof}
-	See \cite[Chap.~III, \S 1.5, Prop.~10]{Bourbaki1975-gf}
-\end{proof}
 
 \begin{definition}
 	Let $G$ be an algebraic group. A Borel subgroup of $G$ is a maximal, Zariski closed, solvable connected subgroup of $G$. A Zariski closed subgroup that contains a Borel subgroup is called a parabolic subgroup.
@@ -150,7 +144,17 @@ If we add freeness to the properness hypothesis, we obtain an analityc structure
     See \cite[Prop.~1.1]{JohnsonDennis1987DSAt}.
 \end{proof}
 
+If we add freeness to properness, we obtain an analytic structure on the quotient.
 
+\begin{theorem}\label{thm:analytic-quotient}
+    Let $G$ be an analytic Lie group acting analytically, properly, and freely on an analytic manifold $X$. Then the orbit space $X/G$, endowed with the quotient topology, is a Hausdorff space. Furthermore, there exists a unique analytic manifold structure on $X/G$ such that the canonical projection $\pi: X \to X/G$ is an analytic submersion.
+\end{theorem}
+
+\begin{proof}
+	See \cite[Chap.~III, \S 1.5, Prop.~10]{Bourbaki1975-gf}
+\end{proof}
+
+To obtain an analytic quotient we may therefore use the representations that are both irreducible and very regular. This motivates the following definition.
 
 \begin{definition}
     Let $G$ be an algebraic group. A representation $\rho : \Gamma \to G$ is called \emph{good} if it is irreducible and very regular. We denote by $\Homgd(\Gamma, G)$ the $\Inn(G)$-invariant subset of good representations.
@@ -159,7 +163,7 @@ If we add freeness to the properness hypothesis, we obtain an analityc structure
 
 By Lemma~\ref{lem:free-action} and Theorem~\ref{thm:proper-action}, the conjugation action on $\Homgd(\Gamma, G)$ is both free and proper. Hence, whenever $\Homgd(\Gamma, G)$ is a manifold, the quotient by conjugation inherits the structure of an analytic manifold. This happens, for instance, for closed surface groups.
 
-\begin{proposition}\label{prop:good-surface}
+\begin{proposition}[\cite{goldmanSymplecticNatureFundamental1984, sikoraCharacterVarieties2012}]\label{prop:good-surface}
     Let $G$ be a reductive algebraic group.
     \begin{enumerate}
         \item $\Homgd(\Gamma, G)$ is Zariski open in $\Hom(\Gamma, G)$.
@@ -171,6 +175,8 @@ By Lemma~\ref{lem:free-action} and Theorem~\ref{thm:proper-action}, the conjugat
         \end{enumerate}
     \end{enumerate}
 \end{proposition}
+
+If we only want a Hausdorff quotient, we can relax the irreducibility condition, as we shall see.
 
 \begin{definition}
     An algebraic group is called \emph{linearly reductive} if all its finite-dimensional representations are completely reducible, i.e. decompose as direct sums of simple subrepresentations. A subgroup of an algebraic group is called \emph{completely reducible} if its Zariski closure is linearly reductive.
@@ -186,12 +192,31 @@ Over $\RR$ or $\CC$, an algebraic group is linearly reductive if and only if its
     Let $G$ be a reductive algebraic group. A representation $\rho : \Gamma \to G$ is reductive if and only if its conjugation orbit $\mathcal{O}_\rho$ is closed in $\Hom(\Gamma, G)$.
 \end{proposition}
  
-As a consequence of Proposition~\ref{prop:closed-orbits}, the topological quotient $\Homred(\Gamma, G) / \Inn(G)$ is a $T_1$-space. Moreover, it is in fact Hausdorff (see \cite{richardsonMinimumVectorsReal1990}). This provides a natural and geometrically meaningful setting in which to define the character variety associated with the pair $(\Gamma, G)$.
+As a consequence of Proposition~\ref{prop:closed-orbits}, the topological quotient $\Homred(\Gamma, G) / \Inn(G)$ is a $T_1$-space. In fact, it is Hausdorff.
+
+\begin{proposition}
+	Let $G$ be a reductive algebraic group. The topological quotient \[
+		\Homred(\Gamma,G)/\Inn(G)
+	\]
+	is Haussdorf.
+\end{proposition}
+
+\begin{proof}
+    See \cite[\S 7.3]{richardsonMinimumVectorsReal1990}.
+\end{proof}
+ 
+This provides a natural and geometrically meaningful setting in which to define the character variety associated with the pair $(\Gamma, G)$.
 
 
+\section{GIT Quotient}
+
+As we saw in the previous section, the conjugation action of $\Inn(G)$ on $\Hom(\Gamma, G)$ yields an analytic, or at least Hausdorff, quotient only under certain conditions, and these conditions rarely hold on the whole representation variety. A first remedy is to restrict to reductive representations: the quotient $\Homred(\Gamma, G)/\Inn(G)$ is Hausdorff, although it is merely a topological space. On the other hand, $\Hom(\Gamma, G)$ is also an algebraic variety, and this additional structure is lost when passing to the topological quotient. In this section we construct a quotient that retains the algebraic structure, using the tools of geometric invariant theory (GIT).
 
 
-\section{GIT quotient}
+\nocite{zamorasaizGeometricInvariantTheory2021}
+\begin{definition}
+	On an algebraic variety, we define regular functions $f:X \to k$ such that for each $x \in X$, there is a neighboorhood $x \in U \subset X$ where $f= g/h$ is described as a quotient in polynomials in $k[X_1,\dots X_n]$ and $h$ does not vanishes on U.
+\end{definition}
 
 
 
