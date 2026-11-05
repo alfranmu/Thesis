@@ -5,20 +5,20 @@ For this chapter we mostly follow \cite{maret_note_nodate, casimiroCharacterVari
 \begin{definition}
     The \emph{representation variety} of $\Gamma$ in $G$ is the set
     \[
-        \Hom(\Gamma, G) = \{ \rho : \Gamma \to G \mid \rho \text{ is a group homomorphism} \}.
+       \RepVar{\Gamma}{G}:= \Hom(\Gamma, G) = \{ \rho : \Gamma \to G \mid \rho \text{ is a group homomorphism} \}.
     \]
     Its elements are called \emph{representations}.
 \end{definition}
 
-We endow $\Hom(\Gamma, G)$ with the subspace topology induced from the compact-open topology on the space of continuous maps $\Gamma \to G$, where $\Gamma$ carries the discrete topology. Since the compact subsets of a discrete space are the finite ones, a subbasis for this topology is given by the sets
+We endow $\RepVar{\Gamma}{G}$ with the subspace topology induced from the compact-open topology on the space of continuous maps $\Gamma \to G$, where $\Gamma$ carries the discrete topology. Since the compact subsets of a discrete space are the finite ones, a subbasis for this topology is given by the sets
 \[
-    V(K, U) = \{ \rho \in \Hom(\Gamma, G) : \rho(K) \subseteq U \},
+    V(K, U) = \{ \rho \in \RepVar{\Gamma}{G} : \rho(K) \subseteq U \},
 \]
 where $K \subseteq \Gamma$ is finite and $U \subseteq G$ is open.
 
 Fix a set of generators $\{\gamma_1, \dots, \gamma_n\}$ of $\Gamma$. It is customary to identify the representation variety with the space of tuples of images of the generators,
 \[
-    X(\Gamma, G) = \{ (\rho(\gamma_1), \dots, \rho(\gamma_n)) : \rho \in \Hom(\Gamma, G) \} \subseteq G^n.
+    X(\Gamma, G) = \{ (\rho(\gamma_1), \dots, \rho(\gamma_n)) : \rho \in \RepVar{\Gamma}{G} \} \subseteq G^n.
 \]
 The following proposition justifies both this identification and the name ``variety''.
 
@@ -77,10 +77,10 @@ Among $\operatorname{Aut(G)}$ normal subgroups, one is particularly important, t
 \subsection{Characterizations of the orbits of the $\operatorname{Inn}(G)$-action }
 In this subsection we look for subsets of the representation variety on which the conjugation action behaves well enough to yield a well-behaved quotient.
 
-For a representation $\rho \in \Hom(\Gamma, G)$ we write $Z(\rho) := Z(\rho(\Gamma))$ for the centralizer of its image. Note that $Z(G) \subseteq Z(\rho)$ always, and that $Z(c_g \cdot \rho) = g Z(\rho) g^{-1}$.
+For a representation $\rho \in \RepVar{\Gamma}{G}$ we write $Z(\rho) := Z(\rho(\Gamma))$ for the centralizer of its image. Note that $Z(G) \subseteq Z(\rho)$ always, and that $Z(c_g \cdot \rho) = g Z(\rho) g^{-1}$.
 
 \begin{definition}
-    A representation $\rho \in \Hom(\Gamma, G)$ is called \emph{regular} if $\dim Z(\rho) = \dim Z(G)$, and \emph{very regular} if $Z(\rho) = Z(G)$. We denote by $\Homreg(\Gamma, G)$ and $\Homvreg(\Gamma, G)$ the subsets of regular and very regular representations, respectively.
+    A representation $\rho \in \RepVar{\Gamma}{G}$ is called \emph{regular} if $\dim Z(\rho) = \dim Z(G)$, and \emph{very regular} if $Z(\rho) = Z(G)$. We denote by $\Homreg(\Gamma, G)$ and $\Homvreg(\Gamma, G)$ the subsets of regular and very regular representations, respectively.
 \end{definition}
 
 Both subsets are $\Inn(G)$-invariant: conjugation preserves dimensions, and $g Z(G) g^{-1} = Z(G)$ for every $g \in G$.
@@ -216,35 +216,103 @@ As we saw in the previous section, the conjugation action of $\Inn(G)$ on $\Hom(
 
 \nocite{zamorasaizGeometricInvariantTheory2021}
 
-We start by noticing that a $G-$action on $X$ defines an action on its regular function ring $\CC(X)$ by $$ f \mapsto f^g(x) \in \CC[X], \quad \text{where} \quad f^g(x):= f(gx)$$
-
-For our purpose of constructing an algebraic quotient, we will focus on the functions that remain constant on the orbits.
-
+We start by noticing that the $G$-action on $X$ induces an action on the ring of regular functions $k[X]$: for $g \in G$ and $f \in k[X]$, let $f^g \in k[X]$ be the function
+\[
+    f^g(x) := f(g \cdot x).
+\]
+Since $(f^g)^h = f^{gh}$, this is a right action of $G$ on $k[X]$.
+ 
+For our purpose of constructing an algebraic quotient, we focus on the functions that are constant on the orbits.
+ 
 \begin{definition}[Invariant functions]
-	The ring of invariant functions is defined as 
-	$$ \CC[X]^G := \{f \in \CC[X]: f^g=f \text{ for all } g \in G\}$$
+    The \emph{ring of invariant functions} of the action is
+    \[
+        k[X]^G := \{ f \in k[X] : f^g = f \text{ for all } g \in G \}.
+    \]
 \end{definition}
 
-A key result in this subject is the following theorem:
 
-
-
-
-\begin{theorem}[Nagata]
-Let $G$ be an algebraic reductive (or semi-reductive) group acting on $\CC[X]^G$. Thenthe ring of invariants $\CC[X]^G$ is a finitely generated $k-$algebra.
+Equivalently, $k[X]^G$ consists of the regular functions $f$ satisfying $f(g \cdot x) = f(x)$ for all $g \in G$ and $x \in X$. A key result in this subject is the following theorem.
+ 
+\begin{theorem}[Nagata]\label{thm:nagata}
+    Let $G$ be a reductive algebraic group acting regularly on an affine variety $X$. Then the ring of invariants $k[X]^G$ is a finitely generated $k$-algebra.
 \end{theorem}
+Nagata's original result is somewhat more general and can be found in \cite{nagataInvariantsGroupAffine1963}.
 
-Nagata's original result is a little more general and can be found in \cite{nagataInvariantsGroupAffine1963}. 
+Since $X$ is irreducible, $k[X]$ is an integral domain, and so is its subring $k[X]^G$. Hence, by Theorem~\ref{thm:nagata} and Proposition~\ref{prop:kalgebras-affinevar}, $k[X]^G$ is the algebra of regular functions of some affine variety.
 
-
-Having stated Nagata's theorem, proposition \ref{prop:kalgebras-affinevar} tell us that $\CC[X]^G$ is the algebra of regular functions of some affine variety. Now we will see how to construct such variety
-
-
-\begin{definition}[polystable representations]
+\begin{definition}[GIT quotient]\label{def:git-quotient}
+	Using the maximal spectrum introduced in Subsection~\ref{subsec:Specmax}, the \emph{GIT\footnote{GIT stands for Geometric Invariant Theory} quotient} of $X$ by $G$ is
+    \[
+        X \git G := \Specmax\big(k[X]^G\big).
+    \]
 \end{definition}
+
+By Proposition~\ref{prop:kalgebras-affinevar} and Proposition~\ref{prop:specmax-homeo}, $X \git G$ is (homeomorphic to) an affine variety whose ring of regular functions is $k[X]^G$.
+
+    Some texts define the GIT quotient as $\operatorname{Spec}\big(k[X]^G\big)$ (cf.\ \cite{zamorasaizGeometricInvariantTheory2021, maret_note_nodate, casimiroCharacterVarietiesTheir2026}). In our setting, where $k[X]^G$ is a finitely generated $k$-algebra that is an integral domain, both constructions carry the same information: $\operatorname{Spec}(k[X]^G)$ is an affine scheme whose closed points form $\Specmax(k[X]^G)$, so the former is viewed as an affine scheme and the latter as an affine variety.
+
+%TODO polystable representation
 
 
 \section{Character variety}
+
+By Nagata's theorem, when $G$ is reductive, the ring of invariant functions is a finitely generated algebra, then we can make the following definition
+
+\begin{definition}
+	The $G-$character variety is defined as $$
+		\mathcal{X}_\Gamma(G) := \Hom(\Gamma,G) \git G = \operatorname{Specmax}\bigl(\CC[\Hom(\Gamma,G)]^G\bigr)
+	$$
+\end{definition}
+
+
+The GIT character variety has by definition the structure of an algebraic variety and is, in particular, a Hausdorff topological space with the standard topology (see \cite[Lemma~3.3.3]{maret_note_nodate}. The inclusion $k[\Hom(\Gamma,G)]^G \subset k[\Hom(\Gamma,G)]$ induces a surjective morphism of algebraic varieties \[
+	p: \Hom(\Gamma,G) \twoheadrightarrow \Specmax(k[\Hom(\Gamma,G)^G)
+\]
+
+Moreover, 
+
+\begin{theorem}
+	Let $G$ be a reductive complex algebraic group. Then there is a homeomorphism \[
+		\Homred(\Gamma,G)/\Inn(G) \cong \Hom(\Gamma,G) \git G
+	\] and $\Hom(\Gamma,G)\git G$ contains the Zariski open subset $\Hom ^{\text{irr}} (\Gamma,G)/\Inn(G)$.
+\end{theorem}
+
+\begin{proof}
+	See \cite[Thm.~4]{casimiroCharacterVarietiesTheir2026}
+\end{proof}
+
+
+The name character varieties comes from the fact that these varieties are generated by characters. Given a representation $\rho \in \RepVar{\Gamma}{G}$, the character of the representation is \[
+	\chi_ \rho: \Gamma \to \CC, \quad \gamma \operatorname{tr}(\rho(\gamma)) 
+\]
+
+Procesi proved 
+
+%TODO: Define whats a word
+
+\begin{theorem}
+The following hold:
+\begin{enumerate}
+    \item If $G \in \{GL(m, K), SL(m, K)\}$, then $K[M_m(K)^n]^G$ is finitely generated by trace polynomials $\operatorname{Tr}(W)$, where $W$ is a reduced word in $\xi_1, \dots, \xi_n$ of length at most $2^m - 1$.
+    
+    \item If $G \in \{O(m, K), SO(m, K)\}$, then $K[M_m(K)^n]^G$ is finitely generated by trace polynomials $\operatorname{Tr}(W)$, where $W$ is a reduced word of length at most $2^m - 1$ in $\xi_1, \dots, \xi_n$ and their orthogonal transposes.
+    
+    \item If $G = Sp(2m, K)$, then $K[M_{2m}(K)^n]^G$ is finitely generated by trace polynomials $\operatorname{Tr}(W)$, where $W$ is a reduced word of length at most $2^{2m} - 1$ in $\xi_1, \dots, \xi_n$ and their symplectic transposes.
+\end{enumerate}
+\end{theorem}
+
+
+\begin{proof}
+	See \cite{procesiInvariantTheoryMatrices1976}
+\end{proof}
+
+
+
+
+
+
+
 
 
 \subsection{Betti character variety}

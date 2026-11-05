@@ -9,7 +9,9 @@
  headsep=0.5cm,
  footskip=0.6cm,
  }
-\linespread{1.5}
+%\linespread{1.5}
+
+
 \usepackage{fancyhdr}
 \fancypagestyle{plain}[fancy]{}
 \renewcommand{\headrulewidth}{0pt}
@@ -26,9 +28,19 @@ colorlinks,
     citecolor={blue!80!black}
 }
 \usepackage{setspace}
+\setstretch{1.5}
 
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{mathtools}
+\makeatletter
+\g@addto@macro\normalsize{%
+  \setlength{\abovedisplayskip}{8pt plus 3pt minus 3pt}%
+  \setlength{\belowdisplayskip}{8pt plus 3pt minus 3pt}%
+  \setlength{\abovedisplayshortskip}{6pt plus 2pt}%
+  \setlength{\belowdisplayshortskip}{8pt plus 2pt minus 2pt}%
+}
+\makeatother
+
 
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}[section]
@@ -49,6 +61,15 @@ colorlinks,
 \DeclareMathOperator{\Homvreg}{Hom^{\mathrm{vreg}}}
 \DeclareMathOperator{\Homgd}{Hom^{\mathrm{gd}}}
 \DeclareMathOperator{\Homred}{Hom^{\mathrm{red}}}
+\DeclareMathOperator{\Specmax}{Specmax}
+\newcommand{\git}{\mathbin{
+  \mathchoice{/\mkern-6mu/}% \displaystyle
+    {/\mkern-6mu/}% \textstyle
+    {/\mkern-5mu/}% \scriptstyle
+    {/\mkern-5mu/}}}% \scriptscriptstyle
+
+\newcommand{\RepVar}[2]{\mathcal{R}_{#1}(#2)}
+
 
 \begin{document}
 

@@ -7,7 +7,7 @@ Let $k$ denote an algebraically closed field of characteristic zero. We will use
 
 \section{Some Basic Group Theory}
 
-In this section we recall some basic notions of group theory; readers familiar with them may skip it. For a more thorough treatment, we recommend \cite{Hungerford2003-rt}.
+In this section we recall some basic notions of group theory; readers familiar with them may skip it. For a more thorough treatment, we recommend \cite{Hungerford2003-rt, zariskiCommutativeAlgebra1986,kemperCourseCommutativeAlgebra2011}.
 
 \subsection{Group actions}
 
@@ -214,7 +214,60 @@ Under the bijection above, affine varieties correspond exactly to prime ideals (
 \end{proof}
 
 
-With these notions in hand, we turn to algebraic groups.
+\subsection{$\Specmax(R)$ as an algebraic variety} \label{subsec:Specmax}
+
+In further sections we will have to construct a Geometric Invariant Theory quotient, we developed the bases for that here.
+ 
+\begin{proposition}[Weak Nullstellensatz]
+    Let $k$ be an algebraically closed field and let $\mathfrak{m} \subseteq k[x_1, \dots, x_n]$ be a maximal ideal. Then there exists a point $\xi = (\xi_1, \dots, \xi_n) \in k^n$ such that
+    \[
+        \mathfrak{m} = (x_1 - \xi_1, \dots, x_n - \xi_n).
+    \]
+\end{proposition}
+ 
+\begin{proof}
+    See \cite[Prop.~1.5]{kemperCourseCommutativeAlgebra2011}.
+\end{proof}
+
+
+\begin{theorem}\label{thm:points-maximal-ideals}
+    Let $k$ be an algebraically closed field and let $S \subseteq k[x_1, \dots, x_n]$ be a set of polynomials. Let $M_S$ be the set of all maximal ideals $\mathfrak{m} \subseteq k[x_1, \dots, x_n]$ with $S \subseteq \mathfrak{m}$. Then the map
+    \[
+        \Phi : V(S) \to M_S, \qquad (\xi_1, \dots, \xi_n) \mapsto (x_1 - \xi_1, \dots, x_n - \xi_n),
+    \]
+    is a bijection.
+\end{theorem}
+ 
+\begin{proof}
+    See \cite[Thm.~1.7]{kemperCourseCommutativeAlgebra2011}.
+\end{proof}
+
+
+\begin{definition}
+    Let $R$ be a commutative ring with identity. The \emph{maximal spectrum} $\Specmax(R)$ of $R$ is the set of maximal ideals of $R$. It is endowed with the Zariski topology, whose closed sets are
+    \[
+        V(I) = \{ \mathfrak{m} \in \Specmax(R) : I \subseteq \mathfrak{m} \}, \qquad I \subseteq R \text{ an ideal};
+    \]
+    this is precisely the topology induced by the Zariski topology of $\operatorname{Spec}(R)$.
+\end{definition}
+
+When $R$ is the ring of regular functions of an algebraic set $X$, the maximal spectrum recovers $X$ with its Zariski topology.
+ 
+\begin{proposition}\label{prop:specmax-homeo}
+    Let $X$ be an algebraic set. Then the map
+    \[
+        X \to \Specmax(k[X]), \qquad x \mapsto \mathfrak{m}_x := \{ f \in k[X] : f(x) = 0 \},
+    \]
+    is a homeomorphism.
+\end{proposition}
+
+\begin{proof}
+	See \cite[\S~11.6.3]{tauvelLieAlgebrasAlgebraic2005}.
+\end{proof}
+
+
+\subsection{Algebraic groups}
+
 
 \begin{definition}
     An \emph{algebraic group} $G$ is an algebraic set equipped with a group structure such that the multiplication map $m : G \times G \to G$, $(g,h) \mapsto gh$, and the inversion map $i : G \to G$, $g \mapsto g^{-1}$, are regular morphisms of varieties.
