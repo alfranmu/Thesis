@@ -1,11 +1,11 @@
-\section{Representation variety}
-For this chapter we mostly follow \cite{maret_note_nodate, casimiroCharacterVarietiesTheir2026}. Throughout, $\Gamma$ denotes a finitely generated group and $G$ a (real or complex) Lie group.
+\section{Representation Variety}
 
+For this chapter we mostly follow \cite{maret_note_nodate, casimiroCharacterVarietiesTheir2026}. Throughout, $\Gamma$ denotes a finitely generated group and $G$ a (real or complex) Lie group.
 
 \begin{definition}
     The \emph{representation variety} of $\Gamma$ in $G$ is the set
     \[
-       \RepVar{\Gamma}{G}:= \Hom(\Gamma, G) = \{ \rho : \Gamma \to G \mid \rho \text{ is a group homomorphism} \}.
+       \RepVar{\Gamma}{G} := \Hom(\Gamma, G) = \{ \rho : \Gamma \to G \mid \rho \text{ is a group homomorphism} \}.
     \]
     Its elements are called \emph{representations}.
 \end{definition}
@@ -22,9 +22,8 @@ Fix a set of generators $\{\gamma_1, \dots, \gamma_n\}$ of $\Gamma$. It is custo
 \]
 The following proposition justifies both this identification and the name ``variety''.
 
-
-\begin{proposition} \label{prop:analytic-structure}
- If $G$ is a Lie group endowed with an analityc atlas then $X(\Gamma,G)$ is an analytic subvariety of $G^n$, homeomorphic to $\Hom(\Gamma,G)$. In particular $\Hom(\Gamma,G)$ inherits a natural structure of analityc variety wich is independent of the choice of generators of $\Gamma$.  	
+\begin{proposition}\label{prop:analytic-structure}
+    Let $G$ be a Lie group, endowed with its analytic structure. Then $X(\Gamma, G)$ is an analytic subvariety of $G^n$ homeomorphic to $\RepVar{\Gamma}{G}$. In particular, $\RepVar{\Gamma}{G}$ inherits a natural structure of analytic variety, which is independent of the choice of generators of $\Gamma$.
 \end{proposition}
 
 \begin{proof}
@@ -46,98 +45,102 @@ If $(\gamma'_{1},\dots,\gamma'_n)$ is another set of generators of $\Gamma$ and 
 \[
 	X(\Gamma,G) \to \Hom(\Gamma,G) \to X'(\Gamma,G)
 \]is an isomorphism of analytic varieties. Indeed, the map sends $(\rho(\gamma_{1}),\dots,\rho(\gamma_n))$ to $(\rho(\gamma_{1}'),\dots,\rho(\gamma_n))$ . Now, since $\gamma_i'$ is a word in the generators $\gamma_{1},\dots,\gamma_n$, it follows that $\rho(\gamma_i')$ is a word in $\rho(\gamma_{1}),\dots,\rho(\gamma_n)$. This shows that the map is analytic because word maps are analytic by assumption on $G$.
-
 \end{proof}
-\begin{proposition}
-	Assume that $G$ has the structure of a real or complex algebraic group, then $X(\Gamma,G)$ is an algebraic subset of $G^n$. In particular,$\Hom(\Gamma,G) $has a natural structure of real or complex algebraic variety and the structure does not depend on the choice of generators of $\Gamma$.
+
+\begin{proposition}\label{prop:algebraic-structure}
+    Assume that $G$ is a real or complex algebraic group. Then $X(\Gamma, G)$ is an algebraic subset of $G^n$. In particular, $\RepVar{\Gamma}{G}$ has a natural structure of real or complex algebraic variety, which does not depend on the choice of generators of $\Gamma$.
 \end{proposition}
 
 \begin{proof}
     The proof is analogous to that of Proposition~\ref{prop:analytic-structure}, replacing ``analytic'' by ``regular'': word maps are regular because multiplication and inversion in $G$ are.
 \end{proof}
 
+The representation variety $\RepVar{\Gamma}{G}$ carries two natural commuting actions: a right action of the group $\operatorname{Aut}(\Gamma)$ of automorphisms of $\Gamma$ by precomposition, and a left action of the group $\operatorname{Aut}(G)$ of automorphisms of $G$ (as a Lie or algebraic group) by postcomposition. Both preserve the analytic or algebraic structure of $\RepVar{\Gamma}{G}$, as a consequence of the next proposition.
 
-
-
-The representation variety $\Hom(\Gamma,G)$, carries two natural symmetries given by the right action of the group $\operatorname{Aut}(\Gamma)$ of automorphisms of $\Gamma$ by pre-composition and the left action of $\operatorname{Aut}(G)$ by post-composition. Both actions preserve the analytic or algebraic structure of $\Hom(\Gamma,G)$ as a consequence of the next proposition
-\begin{proposition}
-	Let $\Gamma, \Gamma_{1},\Gamma_{2}$ be finitely generated groups, and let $G,G_{1},G_{2}$ be Lie or algebraic groups.
-	\begin{enumerate}
-	   \item If $f:\Gamma_{1} \to \Gamma_{2}$ is a homomorphism, then the induced map $ f^* : \Hom(\Gamma_{2}, G) \to \Hom(\Gamma_{1}, G),\quad \rho \mapsto \rho \circ f$  is analytic (or regular). 
-	   \item If $\phi:G_{1}\to G_{2}$ is a homomorphism, then the induced map $ \iphi_* : \Hom(\Gamma, G_{1}) \to \Hom(\Gamma, G_{2}), \rho \mapsto \phi \circ \rho$ is analytic (or regular).		   
-	\end{enumerate}
+\begin{proposition}\label{prop:functoriality}
+    Let $\Gamma, \Gamma_1, \Gamma_2$ be finitely generated groups and let $G, G_1, G_2$ be Lie groups (respectively, algebraic groups).
+    \begin{enumerate}
+        \item If $f : \Gamma_1 \to \Gamma_2$ is a homomorphism, then the induced map
+        \[
+            f^* : \RepVar{\Gamma_2}{G} \to \RepVar{\Gamma_1}{G}, \qquad \rho \mapsto \rho \circ f,
+        \]
+        is analytic (respectively, regular).
+        \item If $\phi : G_1 \to G_2$ is a homomorphism of Lie (respectively, algebraic) groups, then the induced map
+        \[
+            \phi_* : \RepVar{\Gamma}{G_1} \to \RepVar{\Gamma}{G_2}, \qquad \rho \mapsto \phi \circ \rho,
+        \]
+        is analytic (respectively, regular).
+    \end{enumerate}
 \end{proposition}
+
 \begin{proof}
-	See \cite[Lemma 1.2.7]{maret_note_nodate}
-\end{proof} 
+    See \cite[Lemma~1.2.7]{maret_note_nodate}.
+\end{proof}
 
-Among $\operatorname{Aut(G)}$ normal subgroups, one is particularly important, the subgroup of inner automorphisms $\operatorname{Inn}(G)$ defined by conjugation with elements of $G$. In  particular, $\Inn(G)=G/Z(G)$. The action of $\operatorname{Inn}(G)$ on $\Hom(\Gamma, G)$ is fundamental in many geometric situations: for example, holonomy representations of surface structures are only well-defined up to conjugation by G. This motivates the study of the quotient $ \operatorname{Hom}(\Gamma, G)/\operatorname{Inn}(G)$,
+Among the normal subgroups of $\operatorname{Aut}(G)$, a particularly important one is the group $\Inn(G)$ of inner automorphisms, that is, conjugations $c_g(h) = ghg^{-1}$ by elements $g \in G$. Note that $\Inn(G) \cong G / Z(G)$. The resulting action of $\Inn(G)$ on $\RepVar{\Gamma}{G}$,
+\[
+    (c_g \cdot \rho)(\gamma) = g \rho(\gamma) g^{-1},
+\]
+is fundamental in many geometric situations: for example, holonomy representations of geometric structures on surfaces are only well defined up to conjugation by $G$. This motivates the study of the quotient $\RepVar{\Gamma}{G} / \Inn(G)$.
 
+\subsection{Characterizations of the orbits of the $\Inn(G)$-action}
 
-\subsection{Characterizations of the orbits of the $\operatorname{Inn}(G)$-action }
 In this subsection we look for subsets of the representation variety on which the conjugation action behaves well enough to yield a well-behaved quotient.
 
-For a representation $\rho \in \RepVar{\Gamma}{G}$ we write $Z(\rho) := Z(\rho(\Gamma))$ for the centralizer of its image. Note that $Z(G) \subseteq Z(\rho)$ always, and that $Z(c_g \cdot \rho) = g Z(\rho) g^{-1}$.
+For a representation $\rho \in \RepVar{\Gamma}{G}$ we write $Z(\rho) := Z(\rho(\Gamma))$ for the centralizer of its image; it is a closed subgroup of $G$, hence a Lie subgroup, so its dimension makes sense. Note that $Z(G) \subseteq Z(\rho)$ always, and that $Z(c_g \cdot \rho) = g Z(\rho) g^{-1}$.
 
 \begin{definition}
-    A representation $\rho \in \RepVar{\Gamma}{G}$ is called \emph{regular} if $\dim Z(\rho) = \dim Z(G)$, and \emph{very regular} if $Z(\rho) = Z(G)$. We denote by $\Homreg(\Gamma, G)$ and $\Homvreg(\Gamma, G)$ the subsets of regular and very regular representations, respectively.
+    A representation $\rho \in \RepVar{\Gamma}{G}$ is called \emph{regular} if $\dim Z(\rho) = \dim Z(G)$, and \emph{very regular} if $Z(\rho) = Z(G)$. We denote by $\RepVar{\Gamma}{G}[reg]$ and $\RepVar{\Gamma}{G}[vreg]$ the subsets of regular and very regular representations, respectively.
 \end{definition}
 
 Both subsets are $\Inn(G)$-invariant: conjugation preserves dimensions, and $g Z(G) g^{-1} = Z(G)$ for every $g \in G$.
- 
+
 \begin{lemma}\label{lem:free-action}
-    The action of $\Inn(G)$ on $\Homvreg(\Gamma, G)$ is free.
+    The action of $\Inn(G)$ on $\RepVar{\Gamma}{G}[vreg]$ is free.
 \end{lemma}
 
 \begin{proof}
-    Let $\rho \in \Homvreg(\Gamma, G)$ and suppose that $c_g \cdot \rho = \rho$, that is, $g \rho(\gamma) g^{-1} = \rho(\gamma)$ for all $\gamma \in \Gamma$. Then $g \in Z(\rho) = Z(G)$, so $c_g(h) = ghg^{-1} = h$ for every $h \in G$. Hence $c_g$ is the identity of $\Inn(G)$.
+    Let $\rho \in \RepVar{\Gamma}{G}[vreg]$ and suppose that $c_g \cdot \rho = \rho$, that is, $g \rho(\gamma) g^{-1} = \rho(\gamma)$ for all $\gamma \in \Gamma$. Then $g \in Z(\rho) = Z(G)$, so $c_g(h) = ghg^{-1} = h$ for every $h \in G$. Hence $c_g$ is the identity of $\Inn(G)$.
 \end{proof}
 
- 
 \begin{proposition}[\cite{goldmanSymplecticNatureFundamental1984}]\label{prop:locally-free}
-    The action of $\Inn(G)$ on $\Hom(\Gamma, G)$ is locally free at $\rho$ if and only if $\dim Z(\rho) = \dim Z(G)$, i.e.\ if and only if $\rho$ is regular.
+    The action of $\Inn(G)$ on $\RepVar{\Gamma}{G}$ is locally free at $\rho$ (that is, the stabilizer of $\rho$ is discrete) if and only if $\dim Z(\rho) = \dim Z(G)$, i.e.\ if and only if $\rho$ is regular.
 \end{proposition}
 
-
 \begin{proof}
-  See	\cite[Proposition 8]{casimiroCharacterVarietiesTheir2026}.
+    See \cite[Prop.~8]{casimiroCharacterVarietiesTheir2026}.
 \end{proof}
 
 Our next desired property is properness.
 
 \begin{definition}
-	A proper group action is a continuous group action of a topological group $G$ on topological space $X$ for wich the map \[
-		G \times X \to X\times X, (g,x) \to (gx,x)
-	\]
-	is a proper map, i.e., inverse images of compact sets are compact.
+    A continuous action of a topological group $G$ on a topological space $X$ is \emph{proper} if the map
+    \[
+        G \times X \to X \times X, \qquad (g, x) \mapsto (g \cdot x, x),
+    \]
+    is proper, i.e.\ the preimage of every compact set is compact.
 \end{definition}
 
 Properness guarantees that the quotient behaves well topologically, as the next proposition shows.
 
-\begin{proposition}
-	If a topological group $G$ operates properly on a topological space $X$, then the orbit space $X/G$ is Hausdorff. If also $G$ is Hausdorff, then $X$ is Hausdorff.
+\begin{proposition}\label{prop:proper-hausdorff}
+    Let a topological group $G$ act properly on a topological space $X$. Then the orbit space $X/G$ is Hausdorff. If, in addition, $G$ is Hausdorff, then $X$ is Hausdorff.
 \end{proposition}
 
 \begin{proof}
-	See \cite[Prop. 3]{Bourbaki1967-qa}
+    See \cite[Prop.~3]{Bourbaki1967-qa}.
 \end{proof}
 
-
 \begin{definition}
-	Let $G$ be an algebraic group. A Borel subgroup of $G$ is a maximal, Zariski closed, solvable connected subgroup of $G$. A Zariski closed subgroup that contains a Borel subgroup is called a parabolic subgroup.
-
+    Let $G$ be an algebraic group. A \emph{Borel subgroup} of $G$ is a maximal Zariski-closed, connected, solvable subgroup of $G$. A Zariski-closed subgroup of $G$ containing a Borel subgroup is called a \emph{parabolic subgroup}.
 \end{definition}
 
-
-
-
 \begin{definition}
-	Let $G$ be an algebraic group. A representation $\phi: \Gamma \to G$ is called irreducible if the image of $\phi$ does not lie in a proper parabolic subgroup of $G$. We denote by $\Hom ^{\text{irr}}(\Gamma,G)$ the $\Inn(G)-$invariant subspace of irreducible representations.
+    Let $G$ be an algebraic group. A representation $\rho : \Gamma \to G$ is called \emph{irreducible} if its image is not contained in any proper parabolic subgroup of $G$. We denote by $\RepVar{\Gamma}{G}[irr]$ the $\Inn(G)$-invariant subset of irreducible representations.
 \end{definition}
-
 
 \begin{theorem}\label{thm:proper-action}
-	Let $G$ be a reductive algebraic group. The $\Inn(G)$-action on $\Hom ^{\text{irr}}(\Gamma,G)$  is proper.
+    Let $G$ be a reductive algebraic group. Then the action of $\Inn(G)$ on $\RepVar{\Gamma}{G}[irr]$ is proper.
 \end{theorem}
 
 \begin{proof}
@@ -147,31 +150,30 @@ Properness guarantees that the quotient behaves well topologically, as the next 
 If we add freeness to properness, we obtain an analytic structure on the quotient.
 
 \begin{theorem}\label{thm:analytic-quotient}
-    Let $G$ be an analytic Lie group acting analytically, properly, and freely on an analytic manifold $X$. Then the orbit space $X/G$, endowed with the quotient topology, is a Hausdorff space. Furthermore, there exists a unique analytic manifold structure on $X/G$ such that the canonical projection $\pi: X \to X/G$ is an analytic submersion.
+    Let $G$ be a Lie group acting analytically, properly and freely on an analytic manifold $X$. Then the orbit space $X/G$, endowed with the quotient topology, is Hausdorff. Furthermore, there exists a unique analytic manifold structure on $X/G$ such that the canonical projection $\pi : X \to X/G$ is an analytic submersion.
 \end{theorem}
 
 \begin{proof}
-	See \cite[Chap.~III, \S 1.5, Prop.~10]{Bourbaki1975-gf}
+    See \cite[Chap.~III, \S 1.5, Prop.~10]{Bourbaki1975-gf}.
 \end{proof}
 
 To obtain an analytic quotient we may therefore use the representations that are both irreducible and very regular. This motivates the following definition.
 
 \begin{definition}
-    Let $G$ be an algebraic group. A representation $\rho : \Gamma \to G$ is called \emph{good} if it is irreducible and very regular. We denote by $\Homgd(\Gamma, G)$ the $\Inn(G)$-invariant subset of good representations.
+    Let $G$ be an algebraic group. A representation $\rho : \Gamma \to G$ is called \emph{good} if it is irreducible and very regular. We denote by $\RepVar{\Gamma}{G}[gd]$ the $\Inn(G)$-invariant subset of good representations.
 \end{definition}
 
-
-By Lemma~\ref{lem:free-action} and Theorem~\ref{thm:proper-action}, the conjugation action on $\Homgd(\Gamma, G)$ is both free and proper. Hence, whenever $\Homgd(\Gamma, G)$ is a manifold, the quotient by conjugation inherits the structure of an analytic manifold. This happens, for instance, for closed surface groups.
+By Lemma~\ref{lem:free-action} and Theorem~\ref{thm:proper-action}, the conjugation action on $\RepVar{\Gamma}{G}[gd]$ is both free and proper. Hence, by Theorem~\ref{thm:analytic-quotient}, whenever $\RepVar{\Gamma}{G}[gd]$ is a manifold, the quotient by conjugation inherits the structure of an analytic manifold. This happens, for instance, for closed surface groups.
 
 \begin{proposition}[\cite{goldmanSymplecticNatureFundamental1984, sikoraCharacterVarieties2012}]\label{prop:good-surface}
     Let $G$ be a reductive algebraic group.
     \begin{enumerate}
-        \item $\Homgd(\Gamma, G)$ is Zariski open in $\Hom(\Gamma, G)$.
+        \item $\RepVar{\Gamma}{G}[gd]$ is Zariski open in $\RepVar{\Gamma}{G}$.
         \item If $\Gamma = \pi_{g,0}$, then:
         \begin{enumerate}
-            \item $\Homgd(\pi_{g,0}, G)$ is an analytic manifold of dimension $(2g-1)\dim G + \dim Z(G)$;
-            \item the conjugation action on $\Homgd(\pi_{g,0}, G)$ is free and proper;
-            \item the quotient $\Homgd(\pi_{g,0}, G) / \Inn(G)$ is an analytic manifold of dimension $(2g-2)\dim G + 2\dim Z(G)$, which is always even.
+            \item $\RepVar{\pi_{g,0}}{G}[gd]$ is an analytic manifold of dimension $(2g-1)\dim G + \dim Z(G)$;
+            \item the conjugation action on $\RepVar{\pi_{g,0}}{G}[gd]$ is free and proper;
+            \item the quotient $\RepVar{\pi_{g,0}}{G}[gd] / \Inn(G)$ is an analytic manifold of dimension $(2g-2)\dim G + 2\dim Z(G)$, which is always even.
         \end{enumerate}
     \end{enumerate}
 \end{proposition}
@@ -179,93 +181,94 @@ By Lemma~\ref{lem:free-action} and Theorem~\ref{thm:proper-action}, the conjugat
 If we only want a Hausdorff quotient, we can relax the irreducibility condition, as we shall see.
 
 \begin{definition}
-    An algebraic group is called \emph{linearly reductive} if all its finite-dimensional representations are completely reducible, i.e. decompose as direct sums of simple subrepresentations. A subgroup of an algebraic group is called \emph{completely reducible} if its Zariski closure is linearly reductive.
+    An algebraic group is called \emph{linearly reductive} if all its finite-dimensional representations are completely reducible, i.e.\ decompose as direct sums of simple subrepresentations. A subgroup of an algebraic group is called \emph{completely reducible} if its Zariski closure is linearly reductive.
 \end{definition}
 
-Over $\RR$ or $\CC$, an algebraic group is linearly reductive if and only if its Zariski identity component is reductive (see \cite[Corollary 22.43]{milneAlgebraicGroupsTheory2017}). This equivalence allows us to use both notions interchangeably in most geometric contexts.
+Over $\RR$ or $\CC$, an algebraic group is linearly reductive if and only if its Zariski identity component is reductive (see \cite[Cor.~22.43]{milneAlgebraicGroupsTheory2017}). This equivalence allows us to use both notions interchangeably in most geometric contexts.
 
 \begin{definition}
-    Let $G$ be an algebraic group. A representation $\rho : \Gamma \to G$ is called \emph{reductive} (or \emph{completely reducible}) if $\rho(\Gamma) \subseteq G$ is completely reducible. We denote by $\Homred(\Gamma, G)$ the $\Inn(G)$-invariant subset of reductive representations.
+    Let $G$ be an algebraic group. A representation $\rho : \Gamma \to G$ is called \emph{reductive} (or \emph{completely reducible}) if $\rho(\Gamma) \subseteq G$ is completely reducible. We denote by $\RepVar{\Gamma}{G}[red]$ the $\Inn(G)$-invariant subset of reductive representations.
 \end{definition}
+
+The relations between the subsets of $\RepVar{\Gamma}{G}$ introduced so far, together with the properties of the conjugation action on each of them, are summarized in Figure~\ref{fig:diagrama_propiedades}.
 
 \begin{figure}[htbp]
     \centering
     \begin{tikzpicture}[font=\sffamily, scale=1.5]
 
-        % Definir colores basados en la imagen
+        % Colors
         \definecolor{redBox}{RGB}{147, 62, 76}
         \definecolor{greenBox}{RGB}{84, 139, 23}
-        \definecolor{orangeBox}{RGB}{180, 119, 53}
         \definecolor{pinkBox}{RGB}{205, 85, 102}
 
-        % Fondo
-
-        % 1. Reductive (Verde) - Capa inferior
+        % 1. Reductive (green): bottom layer
         \draw[draw=white, fill=greenBox, fill opacity=0.9] (-1, -1) rectangle (3, 3);
-        
-        % 2. Regular (Rojo oscuro) - Capa media
+
+        % 2. Regular (dark red): middle layer
         \draw[draw=white, fill=redBox, fill opacity=0.7] (0.5, 0.5) rectangle (5, 4);
-        
-        % 3. Very Regular (Rosa) - Capa superior
+
+        % 3. Very regular (pink): top layer
         \draw[draw=white, fill=pinkBox, fill opacity=0.6] (1, 0.5) rectangle (5, 1.5);
 
-        % Nodos de texto
+        % Labels
         \node[text=white, anchor=north] at (1, 0.0) {reductive};
         \node[text=white, anchor=north] at (3, 3.9) {regular$^\heartsuit$};
         \node[text=white, anchor=north] at (2, 2.8) {irreducible$^{\spadesuit,\heartsuit,\blacklozenge}$};
-        \node[text=white, anchor=north] at (2.2, 1.25) {good$^{\spadesuit,\heartsuit,\blacklozenge}$};
-        \node[text=white, anchor=north] at (4, 1.25) {very regular$^\heartsuit$};
+        \node[text=white, anchor=north] at (2.2, 1.25) {good$^{\spadesuit,\blackheartsuit,\blacklozenge}$};
+        \node[text=white, anchor=north] at (4, 1.25) {very regular$^{\blackheartsuit}$};
 
-        % Leyenda
-        \node[ anchor=north west, align=left] at (3.4, 0) {
+        % Legend
+        \node[anchor=north west, align=left] at (3.4, 0) {
             $\spadesuit$ : Zariski open\\[2pt]
-            $\heartsuit$ : locally free\\[2pt] 
-            $\blackheartsuit$ : free\\[2pt] 
+            $\heartsuit$ : locally free\\[2pt]
+            $\blackheartsuit$ : free\\[2pt]
             $\blacklozenge$ : proper
         };
-        
+
     \end{tikzpicture}
-    \caption{Aquí puedes escribir el texto descriptivo de tu diagrama.}
+    \caption{Subsets of the representation variety $\RepVar{\Gamma}{G}$ for a reductive group $G$, and properties of the conjugation action on each of them.}
     \label{fig:diagrama_propiedades}
 \end{figure}
 
-
 \begin{proposition}[\cite{florentinoTopologyModuliSpaces2009, sikoraCharacterVarieties2012}]\label{prop:closed-orbits}
-    Let $G$ be a reductive algebraic group. A representation $\rho : \Gamma \to G$ is reductive if and only if its conjugation orbit $\mathcal{O}_\rho$ is closed in $\Hom(\Gamma, G)$.
+    Let $G$ be a reductive algebraic group. A representation $\rho : \Gamma \to G$ is reductive if and only if its conjugation orbit $\mathcal{O}_\rho$ is closed in $\RepVar{\Gamma}{G}$.
 \end{proposition}
- 
-As a consequence of Proposition~\ref{prop:closed-orbits}, the topological quotient $\Homred(\Gamma, G) / \Inn(G)$ is a $T_1$-space. In fact, it is Hausdorff.
 
-\begin{proposition}
-	Let $G$ be a reductive algebraic group. The topological quotient \[
-		\Homred(\Gamma,G)/\Inn(G)
-	\]
-	is Haussdorf.
+As a consequence of Proposition~\ref{prop:closed-orbits}, the topological quotient $\RepVar{\Gamma}{G}[red] / \Inn(G)$ is a $T_1$-space. In fact, it is Hausdorff.
+
+\begin{proposition}\label{prop:red-hausdorff}
+    Let $G$ be a reductive algebraic group. Then the topological quotient
+    \[
+        \RepVar{\Gamma}{G}[red] / \Inn(G)
+    \]
+    is Hausdorff.
 \end{proposition}
 
 \begin{proof}
     See \cite[\S 7.3]{richardsonMinimumVectorsReal1990}.
 \end{proof}
- 
+
 This provides a natural and geometrically meaningful setting in which to define the character variety associated with the pair $(\Gamma, G)$.
 
+%% TODO: Add an example
 
-%%TODO: Add an example
+
 \section{GIT Quotient}
 
-As we saw in the previous section, the conjugation action of $\Inn(G)$ on $\Hom(\Gamma, G)$ yields an analytic, or at least Hausdorff, quotient only under certain conditions, and these conditions rarely hold on the whole representation variety. A first remedy is to restrict to reductive representations: the quotient $\Homred(\Gamma, G)/\Inn(G)$ is Hausdorff, although it is merely a topological space. On the other hand, $\Hom(\Gamma, G)$ is also an algebraic variety, and this additional structure is lost when passing to the topological quotient. In this section we construct a quotient that retains the algebraic structure, using the tools of geometric invariant theory (GIT).
-
+As we saw in the previous section, the conjugation action of $\Inn(G)$ on $\RepVar{\Gamma}{G}$ yields an analytic, or at least Hausdorff, quotient only under certain conditions, and these conditions rarely hold on the whole representation variety. A first remedy is to restrict to reductive representations: the quotient $\RepVar{\Gamma}{G}[red]/\Inn(G)$ is Hausdorff, although it is merely a topological space. On the other hand, $\RepVar{\Gamma}{G}$ is also an algebraic variety, and this additional structure is lost when passing to the topological quotient. In this section we construct a quotient that retains the algebraic structure, using the tools of geometric invariant theory (GIT).
 
 \nocite{zamorasaizGeometricInvariantTheory2021}
+
+Throughout this section, $k$ is an algebraically closed field of characteristic zero (in our applications, $k = \CC$), $G$ is an algebraic group, and $X$ is an affine variety on which $G$ acts regularly, that is, the action map $G \times X \to X$ is a morphism of varieties.
 
 We start by noticing that the $G$-action on $X$ induces an action on the ring of regular functions $k[X]$: for $g \in G$ and $f \in k[X]$, let $f^g \in k[X]$ be the function
 \[
     f^g(x) := f(g \cdot x).
 \]
 Since $(f^g)^h = f^{gh}$, this is a right action of $G$ on $k[X]$.
- 
+
 For our purpose of constructing an algebraic quotient, we focus on the functions that are constant on the orbits.
- 
+
 \begin{definition}[Invariant functions]
     The \emph{ring of invariant functions} of the action is
     \[
@@ -273,18 +276,18 @@ For our purpose of constructing an algebraic quotient, we focus on the functions
     \]
 \end{definition}
 
-
 Equivalently, $k[X]^G$ consists of the regular functions $f$ satisfying $f(g \cdot x) = f(x)$ for all $g \in G$ and $x \in X$. A key result in this subject is the following theorem.
- 
+
 \begin{theorem}[Nagata]\label{thm:nagata}
     Let $G$ be a reductive algebraic group acting regularly on an affine variety $X$. Then the ring of invariants $k[X]^G$ is a finitely generated $k$-algebra.
 \end{theorem}
+
 Nagata's original result is somewhat more general and can be found in \cite{nagataInvariantsGroupAffine1963}.
 
 Since $X$ is irreducible, $k[X]$ is an integral domain, and so is its subring $k[X]^G$. Hence, by Theorem~\ref{thm:nagata} and Proposition~\ref{prop:kalgebras-affinevar}, $k[X]^G$ is the algebra of regular functions of some affine variety.
 
 \begin{definition}[GIT quotient]\label{def:git-quotient}
-	Using the maximal spectrum introduced in Subsection~\ref{subsec:Specmax}, the \emph{GIT\footnote{GIT stands for Geometric Invariant Theory} quotient} of $X$ by $G$ is
+    Using the maximal spectrum introduced in Subsection~\ref{subsec:Specmax}, the \emph{GIT quotient} of $X$ by $G$ is
     \[
         X \git G := \Specmax\big(k[X]^G\big).
     \]
@@ -292,111 +295,131 @@ Since $X$ is irreducible, $k[X]$ is an integral domain, and so is its subring $k
 
 By Proposition~\ref{prop:kalgebras-affinevar} and Proposition~\ref{prop:specmax-homeo}, $X \git G$ is (homeomorphic to) an affine variety whose ring of regular functions is $k[X]^G$.
 
-    Some texts define the GIT quotient as $\operatorname{Spec}\big(k[X]^G\big)$ (cf.\ \cite{zamorasaizGeometricInvariantTheory2021, maret_note_nodate, casimiroCharacterVarietiesTheir2026}). In our setting, where $k[X]^G$ is a finitely generated $k$-algebra that is an integral domain, both constructions carry the same information: $\operatorname{Spec}(k[X]^G)$ is an affine scheme whose closed points form $\Specmax(k[X]^G)$, so the former is viewed as an affine scheme and the latter as an affine variety.
-
-%TODO polystable representation
+Some texts define the GIT quotient as $\operatorname{Spec}\big(k[X]^G\big)$ (cf.\ \cite{zamorasaizGeometricInvariantTheory2021, maret_note_nodate, casimiroCharacterVarietiesTheir2026}). In our setting, where $k[X]^G$ is a finitely generated $k$-algebra that is an integral domain, both constructions carry the same information: $\operatorname{Spec}(k[X]^G)$ is an affine scheme whose closed points form $\Specmax(k[X]^G)$, so the former is viewed as an affine scheme and the latter as an affine variety.
 
 
-\section{Character variety}
+\section{Character Variety}
 
-By Nagata's theorem, when $G$ is reductive, the ring of invariant functions is a finitely generated algebra, then we can make the following definition
+Throughout this section, $G$ is a reductive complex algebraic group acting on $\RepVar{\Gamma}{G}$ by conjugation. By Nagata's theorem (Theorem~\ref{thm:nagata}), the ring of invariant functions $\CC[\RepVar{\Gamma}{G}]^G$ is finitely generated, so we can make the following definition.
 
 \begin{definition}
-	The $G-$character variety is defined as $$
-		\mathcal{X}_\Gamma(G) := \Hom(\Gamma,G) \git G = \operatorname{Specmax}\bigl(\CC[\Hom(\Gamma,G)]^G\bigr)
-	$$
+    The \emph{$G$-character variety} of $\Gamma$ is
+    \[
+        \mathcal{X}_\Gamma(G) := \RepVar{\Gamma}{G} \git G = \Specmax\bigl(\CC[\RepVar{\Gamma}{G}]^G\bigr).
+    \]
 \end{definition}
 
+% TODO: RepVar{\Gamma}{G} may be reducible, whereas the GIT section assumes that X is irreducible.
+% Explain here (or in the GIT section) that the construction extends to reduced algebras.
 
-The GIT character variety has by definition the structure of an algebraic variety and is, in particular, a Hausdorff topological space with the standard topology (see \cite[Lemma~3.3.3]{maret_note_nodate}. 
+By construction, the GIT character variety is an algebraic variety and, when endowed with the Euclidean topology, it is a Hausdorff topological space (see \cite[Lemma~3.3.3]{maret_note_nodate}).
 
-
-
-
-The name character varieties comes from the fact that these varieties are generated by characters. Given a representation $\rho \in \RepVar{\Gamma}{G}$, the character of the representation is \[
-	\chi_ \rho: \Gamma \to \CC, \quad \gamma \mapsto \operatorname{tr}(\rho(\gamma)) 
+The name \emph{character variety} comes from the fact that these varieties are described by characters. Assume that $G \subseteq \GL_m(\CC)$. Given a representation $\rho \in \RepVar{\Gamma}{G}$, its \emph{character} is the function
+\[
+    \chi_\rho : \Gamma \to \CC, \qquad \gamma \mapsto \operatorname{tr}(\rho(\gamma)).
 \]
+Indeed, in \cite{procesiInvariantTheoryMatrices1976}, Procesi proved the following result, which shows that the ring of invariants is generated by traces.
 
-Indeed, in \cite{procesiInvariantTheoryMatrices1976}, Procesi proved the following result:
+% TODO: define what a (reduced) word is.
 
-%TODO: Define whats a word
-
-\begin{theorem}
-	Let $M_m(K)$ the algebra of $m \times m$ matrices with coefficients in K, let $M_m(K)^n= M_m(K)\times \dots \times M_m(K)$ and $K[M_m(K)^n]$ be the algebra of regular functions in $\xi_k = (x^k_{i,j})_{i,j=1,\dots,m}$. The following hold:
-\begin{enumerate}
-    \item If $G \in \{GL(m, K), SL(m, K)\}$, then $K[M_m(K)^n]^G$ is finitely generated by trace polynomials $\operatorname{Tr}(W)$, where $W$ is a reduced word in $\xi_1, \dots, \xi_n$ of length at most $2^m - 1$.
-    
-    \item If $G \in \{O(m, K), SO(m, K)\}$, then $K[M_m(K)^n]^G$ is finitely generated by trace polynomials $\operatorname{Tr}(W)$, where $W$ is a reduced word of length at most $2^m - 1$ in $\xi_1, \dots, \xi_n$ and their orthogonal transposes.
-    
-    \item If $G = Sp(2m, K)$, then $K[M_{2m}(K)^n]^G$ is finitely generated by trace polynomials $\operatorname{Tr}(W)$, where $W$ is a reduced word of length at most $2^{2m} - 1$ in $\xi_1, \dots, \xi_n$ and their symplectic transposes.
-\end{enumerate}
+\begin{theorem}[Procesi]
+    Let $k$ be an algebraically closed field of characteristic zero, let $M_m(k)$ be the algebra of $m \times m$ matrices with coefficients in $k$, let $M_m(k)^n = M_m(k) \times \cdots \times M_m(k)$ ($n$ factors), and let $k[M_m(k)^n]$ be the algebra of regular functions in the coordinates of the tuples $(\xi_1, \dots, \xi_n)$, where $\xi_l = (x^{(l)}_{ij})_{i,j=1,\dots,m}$. Let $G$ act on $M_m(k)^n$ by simultaneous conjugation. The following hold:
+    \begin{enumerate}
+        \item If $G \in \{\GL_m(k), \SL_m(k)\}$, then $k[M_m(k)^n]^G$ is finitely generated by the trace polynomials $\operatorname{tr}(W)$, where $W$ is a reduced word in $\xi_1, \dots, \xi_n$ of length at most $2^m - 1$.
+        \item If $G \in \{\mathrm{O}_m(k), \mathrm{SO}_m(k)\}$, then $k[M_m(k)^n]^G$ is finitely generated by the trace polynomials $\operatorname{tr}(W)$, where $W$ is a reduced word of length at most $2^m - 1$ in $\xi_1, \dots, \xi_n$ and their orthogonal transposes.
+        \item If $G = \mathrm{Sp}_{2m}(k)$, then $k[M_{2m}(k)^n]^G$ is finitely generated by the trace polynomials $\operatorname{tr}(W)$, where $W$ is a reduced word of length at most $2^{2m} - 1$ in $\xi_1, \dots, \xi_n$ and their symplectic transposes.
+    \end{enumerate}
 \end{theorem}
-
 
 % \begin{proof}
 % 	See \cite{procesiInvariantTheoryMatrices1976}
 % \end{proof}
 
-
-The inclusion $k[\Hom(\Gamma,G)]^G \subset k[\Hom(\Gamma,G)]$ induces a surjective morphism of algebraic varieties \[
-	p: \Hom(\Gamma,G) \twoheadrightarrow \Specmax(k[\Hom(\Gamma,G)^G)
+The inclusion $\CC[\RepVar{\Gamma}{G}]^G \subseteq \CC[\RepVar{\Gamma}{G}]$ induces a surjective morphism of algebraic varieties
+\[
+    p : \RepVar{\Gamma}{G} \twoheadrightarrow \Specmax\bigl(\CC[\RepVar{\Gamma}{G}]^G\bigr) = \RepVar{\Gamma}{G} \git G.
 \]
-
-Moreover, 
+Moreover, the points of the GIT quotient admit the following description.
 
 \begin{theorem}
-	Let $G$ be a reductive complex algebraic group. Then there is a homeomorphism \[
-		\Homred(\Gamma,G)/\Inn(G) \cong \Hom(\Gamma,G) \git G
-	\] and $\Hom(\Gamma,G)\git G$ contains the Zariski open subset $\Hom ^{\text{irr}} (\Gamma,G)/\Inn(G)$.
+    Let $G$ be a reductive complex algebraic group. Then there is a homeomorphism
+    \[
+        \RepVar{\Gamma}{G}[red] / \Inn(G) \cong \RepVar{\Gamma}{G} \git G,
+    \]
+    and $\RepVar{\Gamma}{G} \git G$ contains the Zariski open subset $\RepVar{\Gamma}{G}[irr] / \Inn(G)$.
 \end{theorem}
 
 \begin{proof}
-	See \cite[Thm.~4]{casimiroCharacterVarietiesTheir2026}
+    See \cite[Thm.~4]{casimiroCharacterVarietiesTheir2026}.
 \end{proof}
+
 There is an alternative description of the GIT character variety that involves the notion of stability for representations.
 
 \begin{definition}
-	Let $G$ be an algebraic group and $\Gamma$ and a finitely generated group. A representation $\rho: \Gamma \to G$ is called
-	\begin{enumerate}
-		\item polystable if its orbit $\mathcal{O}_ \rho$ is closed.
-		\item stable if its polystable and regular. 
-	\end{enumerate}
+    Let $G$ be an algebraic group and $\Gamma$ a finitely generated group. A representation $\rho : \Gamma \to G$ is called
+    \begin{enumerate}
+        \item \emph{polystable} if its orbit $\mathcal{O}_\rho$ is closed;
+        \item \emph{stable} if it is polystable and regular.
+    \end{enumerate}
 \end{definition}
 
-We denote by $\RepVar{\Gamma}{G}{ps}$ (resp. $\RepVar{\Gamma}{G}{s}$) the subsets of polystable (resp. stable) representations wich are invariant under conjugation. When $G$ is a reductive algebraic group, a representation $\rho \in \RepVar{\Gamma}{G}{}$ is polystable if its reductive and it is stable if and only if it is irreducible. The following result then holds:
+We denote by $\RepVar{\Gamma}{G}[ps]$ (resp.\ $\RepVar{\Gamma}{G}[s]$) the $\Inn(G)$-invariant subsets of polystable (resp.\ stable) representations. When $G$ is a reductive algebraic group, a representation $\rho \in \RepVar{\Gamma}{G}$ is polystable if and only if it is reductive, and it is stable if and only if it is irreducible. The following result then holds.
 
 \begin{theorem}
-Let G be a reductive complex algebraic group. Then there is a homeomorphism  Homps(Γ, G)/Inn(G) = Homred(Γ, G)/Inn(G) Hom(Γ, G)//G,  and Hom(Γ, G)//G contains the Zariski open subset Homs(Γ, G)/Inn(G) = Homirr(Γ, G)/Inn(G)
+    Let $G$ be a reductive complex algebraic group. Then there is a homeomorphism
+    \[
+        \RepVar{\Gamma}{G}[ps] / \Inn(G) = \RepVar{\Gamma}{G}[red] / \Inn(G) \cong \RepVar{\Gamma}{G} \git G,
+    \]
+    and $\RepVar{\Gamma}{G} \git G$ contains the Zariski open subset
+    \[
+        \RepVar{\Gamma}{G}[s] / \Inn(G) = \RepVar{\Gamma}{G}[irr] / \Inn(G).
+    \]
 \end{theorem}
 
-\section{Non Abelian Hodge Correspondence}
-
-There is a particular family of character varieties, that is the Betti character or also known as Betti moduli space. Moduli spaces are structures that classify objects under some equivalence relation. The Betti moduli space is of special relevance for its rrelation with the Dolbeault moduli space: an space that paramaetrizes G-Higgs bundles and the De Rham space, a space that paramaetrizes flat bundles. 
 
 
-For this section, let $X$ be a compact Kahler manifold. If we take $\Gamma= \pi(X)$ as the fundamental group of $X$ and $G$ a reductive Lie group 
+\section{Non-Abelian Hodge Correspondence}
+
+A particularly important family of character varieties for us is that of the Betti character varieties, also called Betti moduli spaces. Moduli spaces are spaces that classify objects up to some equivalence relation. The Betti moduli space is especially relevant because of its relation to the Dolbeault moduli space, which parametrizes $G$-Higgs bundles, and to the de Rham moduli space, which parametrizes flat bundles. We only sketch these relations here, and we refer the reader to \cite{simpsonModuliRepresentationsFundamental1994, simpsonModuliRepresentationsFundamental1994a} or \cite[Chap.~4]{zamorasaizGeometricInvariantTheory2021} for more details.
+
+For this section, let $X$ be a compact Riemann surface (equivalently, a smooth complex projective curve) of genus $g$, let $\Gamma = \pi_1(X) \cong \pi_{g,0}$ be its fundamental group, and let $G$ be a reductive complex algebraic group.
+
 \begin{definition}
-	we define its Betti $G-$character variety or Betti moduli space as:
+    The \emph{Betti $G$-character variety}, or \emph{Betti moduli space}, of $X$ is
+    \[
+        \mathcal{M}_{\mathrm{B}}(X, G) := \mathcal{X}_{\pi_1(X)}(G).
+    \]
+\end{definition}
+
+This space classifies, up to conjugation, the reductive representations of the fundamental group of $X$ in $G$.
+
+\begin{definition}
+    The \emph{de Rham moduli space} $\mathcal{M}_{\mathrm{dR}}(X, G)$ is the coarse moduli space of flat principal $G$-bundles on $X$. In the linear case $G = \GL_n(\CC)$, it parametrizes $S$-equivalence classes of pairs $(E, \nabla)$, where $E \to X$ is an algebraic vector bundle of rank $n$ and $\nabla : E \to E \otimes \Omega_X^1$ is an algebraic connection, which is automatically flat since $\dim_{\CC} X = 1$. The closed points of $\mathcal{M}_{\mathrm{dR}}(X, G)$ correspond to isomorphism classes of semisimple (completely reducible) flat bundles.
+\end{definition}
+
+The classical Riemann--Hilbert correspondence, given by taking the monodromy representation along loops, induces a canonical isomorphism of complex analytic spaces
 \[
-	\mathcal{M}_B(X,G) = \mathcal{X}_{\pi(X)}(G)  
+    \mathrm{RH} : \mathcal{M}_{\mathrm{dR}}(X, G) \xrightarrow{\;\sim\;} \mathcal{M}_{\mathrm{B}}(X, G),
 \]
-\end{definition}
-
-This space classifies the representations of the fundamental group up to conjugation
+which is in general not an isomorphism of algebraic varieties.
 
 \begin{definition}
-Rham moduli space Dd (G) is the moduli space parameterizing flat bundles, i.e., (E, ∇), where E → X is an algebraic bundle of degree d and rank n (and fixed determinant in the case G = SL(n, C)), and ∇ is an algebraic connection on X \ { p0} with a logarithmic pole at p0 with residue − d  n Id. The Riemann-Hilbert correspondence [5,26] gives an analytic isomorphism (but not an algebraic isomorphism) Dd (G) ∼= Md (G).
+    The \emph{Dolbeault moduli space} $\mathcal{M}_{\mathrm{Dol}}(X, G)$ is the coarse moduli space of semistable $G$-Higgs bundles of degree zero on $X$. In the linear case $G = \GL_n(\CC)$, a $G$-Higgs bundle is a pair $(E, \theta)$, where $E \to X$ is an algebraic vector bundle of rank $n$ and $\theta \in H^0\big(X, \operatorname{End}(E) \otimes \Omega_X^1\big)$ is the \emph{Higgs field}. Writing $\mu(F) = \deg(F)/\operatorname{rk}(F)$ for the slope, the pair is \emph{semistable} if $\mu(F) \leq \mu(E) = 0$ for every proper non-zero $\theta$-invariant subbundle $F \subset E$ (that is, $\theta(F) \subseteq F \otimes \Omega_X^1$); it is \emph{stable} if the inequality is strict, and \emph{polystable} if it is a direct sum of stable Higgs bundles of slope zero. The space $\mathcal{M}_{\mathrm{Dol}}(X, G)$ is a quasi-projective algebraic variety whose closed points correspond to polystable Higgs bundles.
 \end{definition}
 
+The three moduli spaces are related by the following celebrated result.
 
-\begin{definition}
-	
-The Dolbeault moduli space Hd (G) is the moduli space of G-Higgs bundles (E, ), consisting of an algebraic bundle E → X of degree d and rank n (also with fixed determinant in the case G = SL(n, C)), and a homomorphism : E → E ⊗ K X (known as the Higgs field - in the case G = SL(n, C), the Higgs field has trace 0). In this situation the theory of harmonic bundles [4,25] gives a homeomorphism Md (G) Hd (G).
-\end{definition}
-
-\begin{theorem}[Non Abelian Hodge correspondence]
-	
+\begin{theorem}[Non-Abelian Hodge correspondence]
+    There are canonical homeomorphisms
+    \[
+        \mathcal{M}_{\mathrm{Dol}}(X, G) \approx \mathcal{M}_{\mathrm{dR}}(X, G) \approx \mathcal{M}_{\mathrm{B}}(X, G),
+    \]
+    where the second one is the Riemann--Hilbert correspondence $\mathrm{RH}$.
 \end{theorem}
 
+    The first homeomorphism relies on the existence of harmonic metrics; see \cite{donaldsonTwistedHarmonicMaps1987, corletteFLATBUNDLESCANONICAL, hitchinSelfDualityEquationsRiemann1987, simpsonModuliRepresentationsFundamental1994a, simpsonModuliRepresentationsFundamental1994}.
+\end{proof}
 
-[Commentary of the importance of this correspondence and refer the reader literature]
+Thus, although the three spaces share the same underlying topological space, their algebraic structures are genuinely different, and the first homeomorphism is in general not an isomorphism of complex analytic spaces.
+
+% TODO: comment on the importance of this correspondence and refer the reader to the literature.
