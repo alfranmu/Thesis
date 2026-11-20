@@ -1,2 +1,93 @@
 
+\section{Kahler varieties}
 
+
+
+\section{Pure Hodge structures}
+
+\begin{Definition}
+A \emph{pure Hodge structure} of weight $k$ consists of a finitely generated $\mathbb{Z}$-module $V_{\mathbb{Z}}$ together with a decomposition of its complexification
+\[
+V_{\mathbb{C}} := V_{\mathbb{Z}} \otimes_{\mathbb{Z}} \mathbb{C}
+= \bigoplus_{p+q=k} V^{p,q},
+\]
+called the \emph{Hodge decomposition}, such that $\overline{V^{p,q}} = V^{q,p}$, where the overline denotes complex conjugation.
+
+\end{Definition}
+
+Associated to a pure Hodge structure of weight $k$, one defines a decreasing filtration of $V_{\mathbb{C}}$, called the \emph{Hodge filtration}, by setting
+\[
+F^p\bigl(V_{\mathbb{C}}\bigr) := \bigoplus_{i \geq p} V^{i,k-i}.
+\]
+This construction yields a finite decreasing filtration $V_{\mathbb{C}} = F^0\bigl(V_{\mathbb{C}}\bigr) \supseteq
+F^1\bigl(V_{\mathbb{C}}\bigr) \supseteq \cdots \supseteq \{0\}.$
+
+
+Conversely, a pure Hodge structure of weight $k$ can be equivalently described by a decreasing filtration
+$F^\bullet\bigl(V_{\mathbb{C}}\bigr)$ satisfying
+\[
+V_{\mathbb{C}} =
+F^p\bigl(V_{\mathbb{C}}\bigr)
+\oplus
+\overline{F^{k-p+1}\bigl(V_{\mathbb{C}}\bigr)}
+\quad \text{for all } p.
+\]
+In this case, the Hodge decomposition is recovered as
+\[
+V^{p,q}
+=
+F^p\bigl(V_{\mathbb{C}}\bigr)
+\cap
+\overline{F^q\bigl(V_{\mathbb{C}}\bigr)},
+\qquad p+q = k.
+\]
+
+\begin{Example}
+	Weight filtration computation
+\end{Example}
+
+\section{Mixed Hodge structures}
+
+
+A \emph{mixed Hodge structure} on a finitely generated $\mathbb{Z}$-module
+$V_{\mathbb{Z}}$ consists of the following data:
+\begin{itemize}
+    \item an increasing filtration
+    $W_\bullet\bigl(V_{\mathbb{Q}}\bigr)$ on
+    $V_{\mathbb{Q}} := V_{\mathbb{Z}} \otimes_{\mathbb{Z}} \mathbb{Q}$,
+    called the \emph{weight filtration},
+    \[
+    \cdots \subseteq
+    W_{k-1}\bigl(V_{\mathbb{Q}}\bigr)
+    \subseteq
+    W_k\bigl(V_{\mathbb{Q}}\bigr)
+    \subseteq
+    W_{k+1}\bigl(V_{\mathbb{Q}}\bigr)
+    \subseteq \cdots;
+    \]
+    \item a decreasing filtration
+    $F^\bullet\bigl(V_{\mathbb{C}}\bigr)$ on
+    $V_{\mathbb{C}} := V_{\mathbb{Z}} \otimes_{\mathbb{Z}} \mathbb{C}$,
+    called the \emph{Hodge filtration},
+    \[
+    V_{\mathbb{C}} =
+    F^0\bigl(V_{\mathbb{C}}\bigr)
+    \supseteq
+    F^1\bigl(V_{\mathbb{C}}\bigr)
+    \supseteq \cdots \supseteq \{0\}.
+    \]
+\end{itemize}
+For each integer $k$, the $k$-th \emph{graded piece} of the weight filtration is defined as the quotient
+\[
+\operatorname{Gr}_k^W\bigl(V_{\mathbb{Q}}\bigr) := W_k\bigl(V_{\mathbb{Q}}\bigr) / W_{k-1}\bigl(V_{\mathbb{Q}}\bigr).
+\]
+These data are required to satisfy the condition that, for each integer $k$, the induced filtration
+$F^\bullet$ on the complexified graded piece
+\[
+\operatorname{Gr}_k^W\bigl(V_{\mathbb{C}}\bigr)
+:=
+\operatorname{Gr}_k^W\bigl(V_{\mathbb{Q}}\bigr)
+\otimes_{\mathbb{Q}} \mathbb{C}
+\]
+defines a pure Hodge structure of weight $k$.
+\end{Definition}
